@@ -24,8 +24,7 @@ class MainActivity : ComponentActivity() {
         setContent {
             M07UF1PR01TiagoNavarroSergiSaraviaTheme {
                 Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-                    Greeting(
-                        name = "Android",
+                    IconBackground(
                         modifier = Modifier.padding(innerPadding)
                     )
                 }
@@ -35,7 +34,7 @@ class MainActivity : ComponentActivity() {
 }
 
 @Composable
-fun Greeting(name: String, modifier: Modifier = Modifier) {
+fun IconBackground(modifier: Modifier = Modifier) {
     Box(modifier = Modifier
         . fillMaxWidth()){
         Image(contentScale = ContentScale.FillWidth
@@ -51,6 +50,6 @@ fun Greeting(name: String, modifier: Modifier = Modifier) {
 @Composable
 fun GreetingPreview() {
     M07UF1PR01TiagoNavarroSergiSaraviaTheme {
-        Greeting("Android")
+        IconBackground()
     }
 }
