@@ -14,16 +14,16 @@ class menuViewModel : ViewModel() {
         val currenAhorcado = _ahorcado.value ?: ahorcado(1)
         when (selectDificutad.value) {
             1 -> _ahorcado.value = currenAhorcado.copy(
-                1
+                dificultad = 1
             )
             2 -> _ahorcado.value = currenAhorcado.copy(
-                2
+                dificultad = 2
             )
             3 -> _ahorcado.value = currenAhorcado.copy(
-                3
+                dificultad = 3
             )
             4 -> _ahorcado.value = currenAhorcado.copy(
-                4
+                dificultad = 4
             )
             else -> println("Valor no valido")
         }
