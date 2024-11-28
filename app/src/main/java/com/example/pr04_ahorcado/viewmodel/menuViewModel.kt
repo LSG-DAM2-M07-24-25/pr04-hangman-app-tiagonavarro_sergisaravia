@@ -9,20 +9,20 @@ class menuViewModel : ViewModel() {
 
     private val _ahorcado = MutableLiveData(ahorcado(1))
     val dificultad: LiveData<ahorcado> = _ahorcado
-    val selectDificutad = MutableLiveData<Int>()
-    fun onPlayClicked() {
+    val selectDificutad = MutableLiveData<String>()
+    fun onDificultSelected() {
         val currenAhorcado = _ahorcado.value ?: ahorcado(1)
         when (selectDificutad.value) {
-            1 -> _ahorcado.value = currenAhorcado.copy(
+            "facil" -> _ahorcado.value = currenAhorcado.copy(
                 dificultad = 1
             )
-            2 -> _ahorcado.value = currenAhorcado.copy(
+            "moderado" -> _ahorcado.value = currenAhorcado.copy(
                 dificultad = 2
             )
-            3 -> _ahorcado.value = currenAhorcado.copy(
+            "dificil" -> _ahorcado.value = currenAhorcado.copy(
                 dificultad = 3
             )
-            4 -> _ahorcado.value = currenAhorcado.copy(
+            "imposible" -> _ahorcado.value = currenAhorcado.copy(
                 dificultad = 4
             )
             else -> println("Valor no valido")

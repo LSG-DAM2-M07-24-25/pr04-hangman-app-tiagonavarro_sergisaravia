@@ -43,6 +43,7 @@ fun mainMenu(myviewModel : menuViewModel) {
     val scrollState = rememberScrollState()
     var selectedText by remember { mutableStateOf("") }
     var expanded by remember { mutableStateOf(false) }
+    val options = listOf("facil", "moderado", "dificil", "imposible")
     var hola by remember { mutableStateOf("h") }
 
     Column(
@@ -82,11 +83,13 @@ fun mainMenu(myviewModel : menuViewModel) {
             expanded = expanded,
             onDismissRequest = { expanded = false }
         ) {
-            myviewModel.dificultades.forEach { dificultad ->
+            options.forEach() { dificultad ->
                 DropdownMenuItem(text = { Text(text = dificultad)},
                     onClick = {
                         expanded = false
                         selectedText = dificultad
+                        myviewModel.selectDificutad.value = dificultad
+                        myviewModel.onDificultSelected()
                     })
             }
         }
