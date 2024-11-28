@@ -15,6 +15,8 @@ import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.DropdownMenu
 import androidx.compose.material3.DropdownMenuItem
+import androidx.compose.material3.Icon
+import androidx.compose.material.icons.filled.ArrowDropDown
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Text
 import androidx.compose.material3.rememberTopAppBarState
@@ -38,6 +40,7 @@ import androidx.compose.ui.unit.dp
 import androidx.lifecycle.ViewModel
 import com.example.pr04_ahorcado.R
 import com.example.pr04_ahorcado.viewmodel.menuViewModel
+import androidx.compose.material.icons.Icons
 
 @Composable
 fun mainMenu(myviewModel : menuViewModel) {
@@ -75,12 +78,16 @@ fun mainMenu(myviewModel : menuViewModel) {
 
         OutlinedTextField(
             value = selectedText,
+            trailingIcon = {Icon(
+                imageVector = Icons.Filled.ArrowDropDown, // Usamos un ícono de Material Design
+                contentDescription = "Dropdown Icon",
+                tint = Color.Gray
+            )},
             onValueChange = {selectedText = it},
             enabled = false,
             readOnly = true,
             modifier = Modifier
                 .clickable{ expanded = true }
-                .fillMaxWidth()
         )
 
         DropdownMenu(
