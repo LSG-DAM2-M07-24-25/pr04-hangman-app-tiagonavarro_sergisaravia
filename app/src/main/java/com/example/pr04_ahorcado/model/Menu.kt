@@ -1,5 +1,5 @@
 package com.example.pr04_ahorcado.model
 
-data class menu(
+data class ahorcado(
     var dificultad: Int
 )
