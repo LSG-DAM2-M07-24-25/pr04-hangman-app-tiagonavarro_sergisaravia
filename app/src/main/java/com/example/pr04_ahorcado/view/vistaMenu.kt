@@ -112,6 +112,6 @@ fun mainMenu(myviewModel : menuViewModel) {
 }
 @Preview(showBackground = true)
 @Composable
-fun ma() {
-    mainMenu()
+fun mainMenuPreview() {
+    mainMenu(menuViewModel())
 }
