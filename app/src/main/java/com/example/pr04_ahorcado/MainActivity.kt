@@ -46,60 +46,9 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContent {
-            mainMenu()
-        }
-    }
-}
-@OptIn(ExperimentalMaterial3Api::class)
-@Composable
-fun mainMenu(modifier: Modifier = Modifier) {
-    val iconoAplicacion = painterResource(id = R.drawable.iconoapp)
-    val scrollState = rememberScrollState()
-    var selectedText by remember { mutableStateOf("") }
-    var expanded by remember { mutableStateOf(false) }
-    val dificultades = listOf("Facil", "Moderado", "Dificil", "Leyenda")
-    Column(
-        modifier = modifier
-            .fillMaxWidth()
-            .padding(16.dp)
-            .verticalScroll(scrollState),
-        horizontalAlignment = Alignment.CenterHorizontally,
-        verticalArrangement = Arrangement.Center
-    ) {
-        // Image Display
-        Image(
-            painter = iconoAplicacion,
-            contentDescription = "App Icon",
-            modifier = Modifier
-                .size(300.dp) // Set a fixed size
-                .padding(8.dp),
-            contentScale = ContentScale.Fit // Avoid cropping
-        )
-
-        // Text Display
-        Text(
-            text = "Welcome to the App!",
-            color = Color.Black,
-            modifier = Modifier.padding(top = 16.dp)
-        )
-
-        DropdownMenu(
-            expanded = expanded,
-            onDismissRequest = { expanded = false }
-        ) {
-            dificultades.forEach { dificultad ->
-                DropdownMenuItem(text = { Text(text = dificultad)},
-                    onClick = {
-                        expanded = false
-                        selectedText = dificultad
-                    })
-            }
+            mainMenu(menuViewModel)
         }
     }
 }
 
-@Preview(showBackground = true)
-@Composable
-fun PreviewMainMenu() {
-    mainMenu()
-}
+

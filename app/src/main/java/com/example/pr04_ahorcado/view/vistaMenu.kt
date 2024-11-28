@@ -17,6 +17,7 @@ import androidx.compose.material3.DropdownMenu
 import androidx.compose.material3.DropdownMenuItem
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Text
+import androidx.compose.material3.rememberTopAppBarState
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
@@ -32,6 +33,7 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.style.TextAlign
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.ViewModel
 import com.example.pr04_ahorcado.R
@@ -74,6 +76,8 @@ fun mainMenu(myviewModel : menuViewModel) {
         OutlinedTextField(
             value = selectedText,
             onValueChange = {selectedText = it},
+            enabled = false,
+            readOnly = true,
             modifier = Modifier
                 .clickable{ expanded = true }
                 .fillMaxWidth()
@@ -105,4 +109,9 @@ fun mainMenu(myviewModel : menuViewModel) {
             Text(text = "Help")
         }*/
     }
+}
+@Preview(showBackground = true)
+@Composable
+fun ma() {
+    mainMenu()
 }
