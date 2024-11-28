@@ -3,7 +3,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.example.pr04_ahorcado.model.ahorcado
-import com.example.pr04_ahorcado.model.menu
+
 
 class menuViewModel : ViewModel() {
 

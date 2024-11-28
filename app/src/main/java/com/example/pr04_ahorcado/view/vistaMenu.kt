@@ -23,7 +23,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.sp
-import com.example.pr04_ahorcado.model.menu
+import com.example.pr04_ahorcado.model.ahorcado
 import com.example.pr04_ahorcado.viewmodel.menuViewModel.*
 import androidx.compose.runtime.livedata.observeAsState
 import androidx.compose.runtime.mutableStateOf
@@ -94,7 +94,7 @@ fun mainMenu(myviewModel : menuViewModel) {
             }
         }
 
-        Button(
+        /*Button(
             onClick =
         ){
             Text(text = "Play")
@@ -103,6 +103,6 @@ fun mainMenu(myviewModel : menuViewModel) {
             onClick = 
         ){
             Text(text = "Help")
-        }
+        }*/
     }
 }
