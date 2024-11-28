@@ -88,6 +88,7 @@ fun mainMenu(myviewModel : menuViewModel) {
             readOnly = true,
             modifier = Modifier
                 .clickable{ expanded = true }
+                .padding(9.dp)
         )
 
         DropdownMenu(
