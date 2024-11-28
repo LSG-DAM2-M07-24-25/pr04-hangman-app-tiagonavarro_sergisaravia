@@ -6,7 +6,11 @@ import com.example.pr04_ahorcado.model.menu
 
 class menuViewModel : ViewModel() {
 
-    val dificultades = listOf("Facil", "Moderado", "Dificil", "Leyenda")
+    private val _dificultad = MutableLiveData(menu(1))
+    val dificultad: LiveData<menu> = _dificultad
+    fun onPlayClicked() {
+        val dificultad = _dificultad.value ?: menu
+    }
 
 
 
