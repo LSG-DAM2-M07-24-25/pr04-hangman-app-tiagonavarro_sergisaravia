@@ -44,6 +44,9 @@ import com.example.pr04_ahorcado.R
 import com.example.pr04_ahorcado.viewmodel.menuViewModel
 import androidx.compose.material.icons.Icons
 import androidx.compose.material3.ButtonColors
+import androidx.compose.material3.MenuDefaults
+import androidx.compose.material3.OutlinedTextFieldDefaults
+import androidx.compose.material3.TextFieldColors
 import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.graphics.Brush
 import androidx.navigation.NavController
@@ -58,14 +61,14 @@ fun vistaMenu(myviewModel : menuViewModel, navController: NavController) {
     var expanded by remember { mutableStateOf(false) }
     val options = listOf("facil", "moderado", "dificil", "imposible")
     var hola by remember { mutableStateOf("h") }
-
     Box(
-        modifier = Modifier.fillMaxSize()
+        modifier = Modifier
+            .fillMaxSize()
             .background(
                 brush = Brush.linearGradient(
                     colors = listOf(Color.Cyan, Color.Red),
                     start = Offset(0f, 0f),
-                    end = Offset(1000f,1000f)
+                    end = Offset(1000f, 1000f)
                 )
             )
     ){
@@ -99,33 +102,44 @@ fun vistaMenu(myviewModel : menuViewModel, navController: NavController) {
                 trailingIcon = {Icon(
                     imageVector = Icons.Filled.ArrowDropDown, // Usamos un ícono de Material Design
                     contentDescription = "Dropdown Icon",
-                    tint = Color.Gray
                 )},
                 onValueChange = {selectedText = it},
                 enabled = false,
                 readOnly = true,
                 modifier = Modifier
                     .clickable { expanded = true }
-                    .padding(9.dp)
+                    .padding(9.dp),
+                colors = OutlinedTextFieldDefaults.colors(
+                    focusedContainerColor = Color.Black,
+                    unfocusedContainerColor = Color.Black
+
+                )
             )
 
             DropdownMenu(
                 expanded = expanded,
-                onDismissRequest = { expanded = false }
+                onDismissRequest = { expanded = false } ,
+                modifier = Modifier
+                    .background(Color(0x000000))
             ) {
                 options.forEach() { dificultad ->
-                    DropdownMenuItem(text = { Text(text = dificultad)},
+                    DropdownMenuItem(text = { Text(text = dificultad, color = Color.White)},
                         onClick = {
                             expanded = false
                             selectedText = dificultad
                             myviewModel.selectDificutad.value = dificultad
                             myviewModel.onDificultSelected()
-                        })
+                        }
+
+                    )
                 }
             }
 
             Button(
                 onClick = { navController.navigate(Routes.Juego.route)},
+                modifier = Modifier
+                    .padding(top = 120.dp)
+                ,
                 colors = ButtonDefaults.buttonColors(
                     containerColor = Color.Black,
                     contentColor = Color.White

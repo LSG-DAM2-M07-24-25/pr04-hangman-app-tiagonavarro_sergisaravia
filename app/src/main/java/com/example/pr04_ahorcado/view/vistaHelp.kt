@@ -1,8 +1,10 @@
 package com.example.pr04_ahorcado.view
 
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
@@ -41,11 +43,25 @@ import androidx.lifecycle.ViewModel
 import com.example.pr04_ahorcado.R
 import com.example.pr04_ahorcado.viewmodel.menuViewModel
 import androidx.compose.material.icons.Icons
+import androidx.compose.ui.geometry.Offset
+import androidx.compose.ui.graphics.Brush
 import androidx.navigation.NavController
 import androidx.navigation.Navigation
 import com.example.pr04_ahorcado.Routes
 
 @Composable
 fun vistaHelp(myviewModel : menuViewModel, navController: NavController){
-    Text(text="Help")
+    Box(
+        modifier = Modifier
+            .fillMaxSize()
+            .background(
+                brush = Brush.linearGradient(
+                    colors = listOf(Color.Cyan, Color.Red),
+                    start = Offset(0f, 0f),
+                    end = Offset(1000f, 1000f)
+                )
+            )
+    ){
+        
+    }
 }
