@@ -96,7 +96,7 @@ fun vistaHelp(myviewModel : menuViewModel, navController: NavController){
                 modifier = Modifier
                     .padding(7.dp)
             ){
-                Icon(Icons.Filled.Star, contentDescription = "star", font)
+                Icon(Icons.Filled.Star, contentDescription = "star", modifier = Modifier.size(12.dp))
                 Text(
                     text="The goal of the game is to guess the hidden word or phrase by suggesting letters one at a time. You win if you guess the word or phrase correctly before the figure of the hangman is fully drawn.",
                     fontSize = 12.sp,
