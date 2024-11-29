@@ -4,6 +4,7 @@ import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
@@ -43,6 +44,8 @@ import com.example.pr04_ahorcado.R
 import com.example.pr04_ahorcado.viewmodel.menuViewModel
 import androidx.compose.material.icons.Icons
 import androidx.compose.material3.ButtonColors
+import androidx.compose.ui.geometry.Offset
+import androidx.compose.ui.graphics.Brush
 import androidx.navigation.NavController
 import androidx.navigation.Navigation
 import com.example.pr04_ahorcado.Routes
@@ -56,78 +59,89 @@ fun vistaMenu(myviewModel : menuViewModel, navController: NavController) {
     val options = listOf("facil", "moderado", "dificil", "imposible")
     var hola by remember { mutableStateOf("h") }
 
-    Column(
-        modifier = Modifier
-            .fillMaxWidth()
-            .padding(16.dp)
-            .verticalScroll(scrollState),
-        horizontalAlignment = Alignment.CenterHorizontally,
-        verticalArrangement = Arrangement.Center
-    ) {
-        // Image Display
-        Image(
-            painter = iconoAplicacion,
-            contentDescription = "App Icon",
+    Box(
+        modifier = Modifier.fillMaxSize()
+            .background(
+                brush = Brush.linearGradient(
+                    colors = listOf(Color.Cyan, Color.Red),
+                    start = Offset(0f, 0f),
+                    end = Offset(1000f,1000f)
+                )
+            )
+    ){
+        Column(
             modifier = Modifier
-                .size(300.dp) // Set a fixed size
-                .padding(8.dp),
-            contentScale = ContentScale.Fit // Avoid cropping
-        )
-
-        // Text Display
-        Text(
-            text = "Welcome to the App!",
-            color = Color.Black,
-            modifier = Modifier.padding(top = 16.dp)
-        )
-
-        OutlinedTextField(
-            value = selectedText,
-            trailingIcon = {Icon(
-                imageVector = Icons.Filled.ArrowDropDown, // Usamos un ícono de Material Design
-                contentDescription = "Dropdown Icon",
-                tint = Color.Gray
-            )},
-            onValueChange = {selectedText = it},
-            enabled = false,
-            readOnly = true,
-            modifier = Modifier
-                .clickable { expanded = true }
-                .padding(9.dp)
-        )
-
-        DropdownMenu(
-            expanded = expanded,
-            onDismissRequest = { expanded = false }
+                .fillMaxWidth()
+                .padding(16.dp)
+                .verticalScroll(scrollState),
+            horizontalAlignment = Alignment.CenterHorizontally,
+            verticalArrangement = Arrangement.Center
         ) {
-            options.forEach() { dificultad ->
-                DropdownMenuItem(text = { Text(text = dificultad)},
-                    onClick = {
-                        expanded = false
-                        selectedText = dificultad
-                        myviewModel.selectDificutad.value = dificultad
-                        myviewModel.onDificultSelected()
-                    })
-            }
-        }
+            // Image Display
+            Image(
+                painter = iconoAplicacion,
+                contentDescription = "App Icon",
+                modifier = Modifier
+                    .size(300.dp) // Set a fixed size
+                    .padding(8.dp),
+                contentScale = ContentScale.Fit // Avoid cropping
+            )
 
-        Button(
-            onClick = { navController.navigate(Routes.Juego.route)},
-            colors = ButtonDefaults.buttonColors(
-                containerColor = Color.Black,
-                contentColor = Color.White
+            // Text Display
+            Text(
+                text = "Welcome to the App!",
+                color = Color.Black,
+                modifier = Modifier.padding(top = 16.dp)
             )
-        ){
-            Text(text = "Play")
-        }
-        Button(
-            onClick = { navController.navigate(Routes.Help.route)},
-            colors = ButtonDefaults.buttonColors(
-                containerColor = Color.Black,
-                contentColor = Color.White
+
+            OutlinedTextField(
+                value = selectedText,
+                trailingIcon = {Icon(
+                    imageVector = Icons.Filled.ArrowDropDown, // Usamos un ícono de Material Design
+                    contentDescription = "Dropdown Icon",
+                    tint = Color.Gray
+                )},
+                onValueChange = {selectedText = it},
+                enabled = false,
+                readOnly = true,
+                modifier = Modifier
+                    .clickable { expanded = true }
+                    .padding(9.dp)
             )
-        ){
-            Text(text = "Help")
+
+            DropdownMenu(
+                expanded = expanded,
+                onDismissRequest = { expanded = false }
+            ) {
+                options.forEach() { dificultad ->
+                    DropdownMenuItem(text = { Text(text = dificultad)},
+                        onClick = {
+                            expanded = false
+                            selectedText = dificultad
+                            myviewModel.selectDificutad.value = dificultad
+                            myviewModel.onDificultSelected()
+                        })
+                }
+            }
+
+            Button(
+                onClick = { navController.navigate(Routes.Juego.route)},
+                colors = ButtonDefaults.buttonColors(
+                    containerColor = Color.Black,
+                    contentColor = Color.White
+                )
+            ){
+                Text(text = "Play")
+            }
+            Button(
+                onClick = { navController.navigate(Routes.Help.route)},
+                colors = ButtonDefaults.buttonColors(
+                    containerColor = Color.Black,
+                    contentColor = Color.White
+                )
+            ){
+                Text(text = "Help")
+            }
         }
     }
 }
