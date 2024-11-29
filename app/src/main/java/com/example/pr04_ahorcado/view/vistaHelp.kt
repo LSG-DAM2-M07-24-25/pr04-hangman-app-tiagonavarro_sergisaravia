@@ -51,6 +51,7 @@ import com.example.pr04_ahorcado.Routes
 
 @Composable
 fun vistaHelp(myviewModel : menuViewModel, navController: NavController){
+    val scrollState = rememberScrollState()
     Box(
         modifier = Modifier
             .fillMaxSize()
