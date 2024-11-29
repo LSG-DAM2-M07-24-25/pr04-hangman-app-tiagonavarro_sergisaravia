@@ -106,7 +106,7 @@ fun mainMenu(myviewModel : menuViewModel) {
             }
         }
 
-        /*Button(
+        Button(
             onClick =
         ){
             Text(text = "Play")
