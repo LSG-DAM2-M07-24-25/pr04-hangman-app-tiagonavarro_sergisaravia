@@ -67,7 +67,8 @@ fun vistaHelp(myviewModel : menuViewModel, navController: NavController){
         Column(
             modifier = Modifier
                 .fillMaxWidth()
-                .padding(55.dp)
+                .padding(vertical = 55.dp)
+                .padding(horizontal = 25.dp)
                 .background(Color.Red)
                 .verticalScroll(scrollState),
             horizontalAlignment = Alignment.CenterHorizontally,
@@ -86,11 +87,23 @@ fun vistaHelp(myviewModel : menuViewModel, navController: NavController){
                     .padding(10.dp)
             ){
                 Text(
-                    text="Objective",
-                    fontSize = 22.sp,
+                    text="1. Objective",
+                    fontSize = 20.sp,
                     fontWeight = FontWeight.Bold,
                 )
             }
+            Row(
+                modifier = Modifier
+                    .padding(7.dp)
+            ){
+                Icon(Icons.Filled.Star, contentDescription = "star", font)
+                Text(
+                    text="The goal of the game is to guess the hidden word or phrase by suggesting letters one at a time. You win if you guess the word or phrase correctly before the figure of the hangman is fully drawn.",
+                    fontSize = 12.sp,
+                )
+            }
+
+
 
 
         }
