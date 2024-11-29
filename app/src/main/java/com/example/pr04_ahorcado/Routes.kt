@@ -1,7 +1,7 @@
-package com.example.pr04_ahorcado.view
+package com.example.pr04_ahorcado
 
 sealed class Routes(val route: String) {
-    object Menu : Routes("vistaMenu.kt")
-    object Juego : Routes("vistaJuego.kt")
-    object Help : Routes("vistaHelp.kt")
+    object vistaMenu : Routes("vistaMenu")
+    object Juego : Routes("vistaJuego")
+    object Help : Routes("vistaHelp")
 }

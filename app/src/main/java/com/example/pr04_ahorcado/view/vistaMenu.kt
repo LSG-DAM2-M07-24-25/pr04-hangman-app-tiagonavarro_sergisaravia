@@ -41,9 +41,12 @@ import androidx.lifecycle.ViewModel
 import com.example.pr04_ahorcado.R
 import com.example.pr04_ahorcado.viewmodel.menuViewModel
 import androidx.compose.material.icons.Icons
+import androidx.navigation.NavController
+import androidx.navigation.Navigation
+import com.example.pr04_ahorcado.Routes
 
 @Composable
-fun mainMenu(myviewModel : menuViewModel) {
+fun vistaMenu(myviewModel : menuViewModel, navController: NavController) {
     val iconoAplicacion = painterResource(id = R.drawable.iconoapp)
     val scrollState = rememberScrollState()
     var selectedText by remember { mutableStateOf("") }
@@ -105,7 +108,7 @@ fun mainMenu(myviewModel : menuViewModel) {
                     })
             }
         }
-
+        /*
         Button(
             onClick =
         ){
@@ -117,9 +120,4 @@ fun mainMenu(myviewModel : menuViewModel) {
             Text(text = "Help")
         }*/
     }
-}
-@Preview(showBackground = true)
-@Composable
-fun mainMenuPreview() {
-    mainMenu(menuViewModel())
 }

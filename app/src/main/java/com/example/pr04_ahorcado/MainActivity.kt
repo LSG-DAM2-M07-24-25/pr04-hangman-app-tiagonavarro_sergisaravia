@@ -40,6 +40,7 @@ import androidx.activity.viewModels;
 import androidx.navigation.compose.rememberNavController
 import com.example.pr04_ahorcado.R
 import com.example.pr04_ahorcado.entryPoint
+import com.example.pr04_ahorcado.Routes
 
 
 class MainActivity : ComponentActivity() {
