@@ -84,27 +84,267 @@ fun vistaHelp(myviewModel : menuViewModel, navController: NavController){
             }
             Row(
                 modifier = Modifier
-                    .padding(10.dp)
+                    .padding(top = 10.dp)
             ){
                 Text(
-                    text="1. Objective",
+                    text="1. Objective:",
                     fontSize = 20.sp,
                     fontWeight = FontWeight.Bold,
                 )
             }
             Row(
                 modifier = Modifier
-                    .padding(7.dp)
+                    .padding(top = 7.dp)
             ){
                 Icon(Icons.Filled.Star, contentDescription = "star", modifier = Modifier.size(12.dp))
                 Text(
-                    text="The goal of the game is to guess the hidden word or phrase by suggesting letters one at a time. You win if you guess the word or phrase correctly before the figure of the hangman is fully drawn.",
+                    text="The goal of the game is to guess the hidden word or phrase by suggesting letters one at a time. You win if you guess the word correctly before the hangman figure is fully drawn.",
                     fontSize = 12.sp,
                     modifier = Modifier.padding(start = 5.dp)
                 )
             }
-
-
+            Row(
+                modifier = Modifier
+                    .padding(top = 10.dp)
+            ){
+                Text(
+                    text="2. Setup:",
+                    fontSize = 20.sp,
+                    fontWeight = FontWeight.Bold,
+                )
+            }
+            Row(
+                modifier = Modifier
+                    .padding(top = 7.dp)
+            ){
+                Icon(Icons.Filled.Star, contentDescription = "star", modifier = Modifier.size(12.dp))
+                Text(
+                    text="Choose or generate a word or phrase for the game.",
+                    fontSize = 12.sp,
+                    modifier = Modifier.padding(start = 5.dp)
+                )
+            }
+            Row(
+                modifier = Modifier
+                    .padding(top = 7.dp)
+            ) {
+                Icon(
+                    Icons.Filled.Star,
+                    contentDescription = "star",
+                    modifier = Modifier.size(12.dp)
+                )
+                Text(
+                    text = "Write blank spaces to represent each letter of the word. Spaces between words should be left blank.",
+                    fontSize = 12.sp,
+                    modifier = Modifier.padding(start = 5.dp)
+                )
+            }
+            Row(
+                modifier = Modifier
+                    .padding(top = 7.dp)
+            ) {
+                Icon(
+                    Icons.Filled.Star,
+                    contentDescription = "star",
+                    modifier = Modifier.size(12.dp)
+                )
+                Text(
+                    text = "Keep track of the letters you’ve already guessed.",
+                    fontSize = 12.sp,
+                    modifier = Modifier.padding(start = 5.dp)
+                )
+            }
+            Row(
+                modifier = Modifier
+                    .padding(top = 10.dp)
+            ){
+                Text(
+                    text="3. Gameplay:",
+                    fontSize = 20.sp,
+                    fontWeight = FontWeight.Bold,
+                )
+            }
+            Row(
+                modifier = Modifier
+                    .padding(top = 7.dp)
+            ) {
+                Icon(
+                    Icons.Filled.Star,
+                    contentDescription = "star",
+                    modifier = Modifier.size(12.dp)
+                )
+                Text(
+                    text = "On each turn, guess one letter. If the letter is in the word, fill it in the appropriate blank spaces.",
+                    fontSize = 12.sp,
+                    modifier = Modifier.padding(start = 5.dp)
+                )
+            }
+            Row(
+                modifier = Modifier
+                    .padding(top = 7.dp)
+            ) {
+                Icon(
+                    Icons.Filled.Star,
+                    contentDescription = "star",
+                    modifier = Modifier.size(12.dp)
+                )
+                Text(
+                    text = "If the letter is not in the word, increase the number of incorrect guesses.",
+                    fontSize = 12.sp,
+                    modifier = Modifier.padding(start = 5.dp)
+                )
+            }
+            Row(
+                modifier = Modifier
+                    .padding(top = 7.dp)
+            ) {
+                Icon(
+                    Icons.Filled.Star,
+                    contentDescription = "star",
+                    modifier = Modifier.size(12.dp)
+                )
+                Text(
+                    text = "You can also choose to guess the entire word or phrase, but if it's wrong, it counts as an incorrect guess.",
+                    fontSize = 12.sp,
+                    modifier = Modifier.padding(start = 5.dp)
+                )
+            }
+            Row(
+                modifier = Modifier
+                    .padding(top = 10.dp)
+            ){
+                Text(
+                    text="4. Limit on Incorrect Guesses:",
+                    fontSize = 20.sp,
+                    fontWeight = FontWeight.Bold,
+                )
+            }
+            Row(
+                modifier = Modifier
+                    .padding(top = 7.dp)
+            ) {
+                Icon(
+                    Icons.Filled.Star,
+                    contentDescription = "star",
+                    modifier = Modifier.size(12.dp)
+                )
+                Text(
+                    text = "You have a limited number of incorrect guesses (usually 6 or 7) before the hangman is fully drawn.",
+                    fontSize = 12.sp,
+                    modifier = Modifier.padding(start = 5.dp)
+                )
+            }
+            Row(
+                modifier = Modifier
+                    .padding(top = 7.dp)
+            ) {
+                Icon(
+                    Icons.Filled.Star,
+                    contentDescription = "star",
+                    modifier = Modifier.size(12.dp)
+                )
+                Text(
+                    text = "Each incorrect guess adds a part to the figure (head, body, arms, legs, etc.).",
+                    fontSize = 12.sp,
+                    modifier = Modifier.padding(start = 5.dp)
+                )
+            }
+            Row(
+                modifier = Modifier
+                    .padding(top = 10.dp)
+            ){
+                Text(
+                    text="5. Winning the game",
+                    fontSize = 20.sp,
+                    fontWeight = FontWeight.Bold,
+                )
+            }
+            Row(
+                modifier = Modifier
+                    .padding(top = 7.dp)
+            ) {
+                Icon(
+                    Icons.Filled.Star,
+                    contentDescription = "star",
+                    modifier = Modifier.size(12.dp)
+                )
+                Text(
+                    text = "You win if you guess all the letters of the word or phrase before the hangman is fully drawn.",
+                    fontSize = 12.sp,
+                    modifier = Modifier.padding(start = 5.dp)
+                )
+            }
+            Row(
+                modifier = Modifier
+                    .padding(top = 7.dp)
+            ) {
+                Icon(
+                    Icons.Filled.Star,
+                    contentDescription = "star",
+                    modifier = Modifier.size(12.dp)
+                )
+                Text(
+                    text = "The word is revealed, and you’ve won the game if you’ve successfully guessed all letters.",
+                    fontSize = 12.sp,
+                    modifier = Modifier.padding(start = 5.dp)
+                )
+            }
+            Row(
+                modifier = Modifier
+                    .padding(top = 10.dp)
+            ){
+                Text(
+                    text="6. Losing the game:",
+                    fontSize = 20.sp,
+                    fontWeight = FontWeight.Bold,
+                )
+            }
+            Row(
+                modifier = Modifier
+                    .padding(top = 7.dp)
+            ) {
+                Icon(
+                    Icons.Filled.Star,
+                    contentDescription = "star",
+                    modifier = Modifier.size(12.dp)
+                )
+                Text(
+                    text = "You win if you guess all the letters of the word or phrase before the hangman is fully drawn.",
+                    fontSize = 12.sp,
+                    modifier = Modifier.padding(start = 5.dp)
+                )
+            }
+            Row(
+                modifier = Modifier
+                    .padding(top = 7.dp)
+            ) {
+                Icon(
+                    Icons.Filled.Star,
+                    contentDescription = "star",
+                    modifier = Modifier.size(12.dp)
+                )
+                Text(
+                    text = "The game ends in a loss if the hangman is fully drawn before you’ve guessed the word or phrase.",
+                    fontSize = 12.sp,
+                    modifier = Modifier.padding(start = 5.dp)
+                )
+            }
+            Row(
+                modifier = Modifier
+                    .padding(top = 7.dp)
+                    .padding(bottom = 30.dp)
+            ) {
+                Icon(
+                    Icons.Filled.Star,
+                    contentDescription = "star",
+                    modifier = Modifier.size(12.dp)
+                )
+                Text(
+                    text = "The game shows the completed word or phrase after you lose.",
+                    fontSize = 12.sp,
+                    modifier = Modifier.padding(start = 5.dp)
+                )
+            }
 
 
         }
