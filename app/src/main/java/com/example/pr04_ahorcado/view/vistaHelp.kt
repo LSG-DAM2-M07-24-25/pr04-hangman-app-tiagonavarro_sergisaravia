@@ -45,6 +45,7 @@ import com.example.pr04_ahorcado.viewmodel.menuViewModel
 import androidx.compose.material.icons.Icons
 import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.graphics.Brush
+import androidx.compose.ui.text.font.FontWeight
 import androidx.navigation.NavController
 import androidx.navigation.Navigation
 import com.example.pr04_ahorcado.Routes
@@ -66,10 +67,16 @@ fun vistaHelp(myviewModel : menuViewModel, navController: NavController){
         Column(
             modifier = Modifier
                 .fillMaxWidth()
-                .padding(16.dp)
+                .padding(55.dp)
                 .verticalScroll(scrollState),
             horizontalAlignment = Alignment.CenterHorizontally,
             verticalArrangement = Arrangement.Center
-        ){}
+        ){
+            Text(
+                text="Help",
+                fontSize = 30.sp,
+                fontWeight = FontWeight.Bold
+                )
+        }
     }
 }
