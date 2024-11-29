@@ -62,6 +62,13 @@ fun vistaHelp(myviewModel : menuViewModel, navController: NavController){
                 )
             )
     ){
-        
+        Column(
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(16.dp)
+                .verticalScroll(scrollState),
+            horizontalAlignment = Alignment.CenterHorizontally,
+            verticalArrangement = Arrangement.Center
+        ){}
     }
 }
