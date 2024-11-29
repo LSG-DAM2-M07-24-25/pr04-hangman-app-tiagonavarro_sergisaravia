@@ -18,7 +18,7 @@ fun entryPoint(navigationController: NavController) {
         startDestination = Routes.Menu.route
     ){
         composable(Routes.Menu.route) { Routes.Menu(navigationController) }
-        composable(Routes.Menu.route) { Routes.Help(navigationController) }
+        composable(Routes.Help.route) { Routes.Help(navigationController) }
         composable(Routes.Juego.route){ Routes.Juego(navigationController)}
     }
 }

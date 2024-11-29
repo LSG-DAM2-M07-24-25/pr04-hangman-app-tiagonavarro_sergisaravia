@@ -37,7 +37,9 @@ import com.example.pr04_ahorcado.view.*
 //importar todos los view models creados
 import com.example.pr04_ahorcado.viewmodel.*
 import androidx.activity.viewModels;
+import androidx.navigation.compose.rememberNavController
 import com.example.pr04_ahorcado.R
+import com.example.pr04_ahorcado.entryPoint
 
 
 class MainActivity : ComponentActivity() {
@@ -46,7 +48,8 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContent {
-            mainMenu(menuViewModel)
+            val navigationController = rememberNavController()
+            entryPoint(navigationController)
         }
     }
 }
