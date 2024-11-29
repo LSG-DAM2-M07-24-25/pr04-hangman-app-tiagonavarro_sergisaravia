@@ -108,16 +108,16 @@ fun vistaMenu(myviewModel : menuViewModel, navController: NavController) {
                     })
             }
         }
-        /*
+
         Button(
-            onClick =
+            onClick = { navController.navigate(Routes.Juego.route)},
         ){
             Text(text = "Play")
         }
         Button(
-            onClick = 
+            onClick = { navController.navigate(Routes.Help.route)},
         ){
             Text(text = "Help")
-        }*/
+        }
     }
 }
