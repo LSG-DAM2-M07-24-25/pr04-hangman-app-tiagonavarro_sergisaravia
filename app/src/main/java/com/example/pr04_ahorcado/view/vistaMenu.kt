@@ -1,6 +1,7 @@
 package com.example.pr04_ahorcado.view
 
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -41,6 +42,7 @@ import androidx.lifecycle.ViewModel
 import com.example.pr04_ahorcado.R
 import com.example.pr04_ahorcado.viewmodel.menuViewModel
 import androidx.compose.material.icons.Icons
+import androidx.compose.material3.ButtonColors
 import androidx.navigation.NavController
 import androidx.navigation.Navigation
 import com.example.pr04_ahorcado.Routes
@@ -90,7 +92,7 @@ fun vistaMenu(myviewModel : menuViewModel, navController: NavController) {
             enabled = false,
             readOnly = true,
             modifier = Modifier
-                .clickable{ expanded = true }
+                .clickable { expanded = true }
                 .padding(9.dp)
         )
 
@@ -111,11 +113,19 @@ fun vistaMenu(myviewModel : menuViewModel, navController: NavController) {
 
         Button(
             onClick = { navController.navigate(Routes.Juego.route)},
+            colors = ButtonDefaults.buttonColors(
+                containerColor = Color.Black,
+                contentColor = Color.White
+            )
         ){
             Text(text = "Play")
         }
         Button(
             onClick = { navController.navigate(Routes.Help.route)},
+            colors = ButtonDefaults.buttonColors(
+                containerColor = Color.Black,
+                contentColor = Color.White
+            )
         ){
             Text(text = "Help")
         }
