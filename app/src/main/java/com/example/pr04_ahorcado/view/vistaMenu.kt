@@ -86,7 +86,7 @@ fun vistaMenu(myviewModel : menuViewModel, navController: NavController) {
                 contentDescription = "App Icon",
                 modifier = Modifier
                     .size(300.dp) // Set a fixed size
-                    .padding(8.dp),
+                    .padding(30.dp),
                 contentScale = ContentScale.Fit // Avoid cropping
             )
 

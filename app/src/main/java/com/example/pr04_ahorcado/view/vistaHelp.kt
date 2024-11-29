@@ -18,7 +18,7 @@ import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.DropdownMenu
 import androidx.compose.material3.DropdownMenuItem
 import androidx.compose.material3.Icon
-import androidx.compose.material.icons.filled.ArrowDropDown
+import androidx.compose.material.icons.filled.Star
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Text
 import androidx.compose.material3.rememberTopAppBarState
@@ -77,6 +77,7 @@ fun vistaHelp(myviewModel : menuViewModel, navController: NavController){
                 fontSize = 30.sp,
                 fontWeight = FontWeight.Bold
                 )
+
         }
     }
 }
