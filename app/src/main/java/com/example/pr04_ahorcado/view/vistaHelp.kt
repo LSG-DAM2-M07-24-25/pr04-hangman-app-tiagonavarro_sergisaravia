@@ -68,15 +68,30 @@ fun vistaHelp(myviewModel : menuViewModel, navController: NavController){
             modifier = Modifier
                 .fillMaxWidth()
                 .padding(55.dp)
+                .background(Color.Red)
                 .verticalScroll(scrollState),
             horizontalAlignment = Alignment.CenterHorizontally,
             verticalArrangement = Arrangement.Center
         ){
-            Text(
-                text="Help",
-                fontSize = 30.sp,
-                fontWeight = FontWeight.Bold
+            Row(){
+                Text(
+                    text="Help",
+                    fontSize = 30.sp,
+                    fontWeight = FontWeight.Bold
+
                 )
+            }
+            Row(
+                modifier = Modifier
+                    .padding(10.dp)
+            ){
+                Text(
+                    text="Objective",
+                    fontSize = 22.sp,
+                    fontWeight = FontWeight.Bold,
+                )
+            }
+
 
         }
     }
