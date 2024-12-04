@@ -73,7 +73,7 @@ fun ScreenSplash(navController: NavController) {
         navController.navigate(Routes.Pantalla2.route)
     }
 
-    // Disseny de la pantallaSSS
+    // Disseny de la pantalla
     Box(
         modifier = Modifier
             .fillMaxSize()

@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">LiveData example</string>
+    <string name="todo">todo</string>
+    <string name="enter_element">enter_element\n</string>
 </resources>

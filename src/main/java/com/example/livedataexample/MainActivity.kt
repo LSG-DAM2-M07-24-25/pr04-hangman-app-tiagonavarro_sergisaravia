@@ -41,7 +41,7 @@ class MainActivity : ComponentActivity() {
                 navController = navigationController,
                 startDestination = Routes.Pantalla1.route
             ) {
-                composable(Routes.Pantalla1.route) { Screen1(navigationController) }
+                composable(Routes.Pantalla1.route) { ScreenSplash(navigationController) }
                 composable(Routes.Pantalla2.route) { Screen2(navigationController) }
                 composable(Routes.Pantalla3.route) { Screen3(navigationController) }
                 composable(Routes.NumberView.route) { Body(myViewModel = numeroViewModel)
