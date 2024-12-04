@@ -43,12 +43,17 @@ import androidx.lifecycle.ViewModel
 import com.example.pr04_ahorcado.R
 import com.example.pr04_ahorcado.viewmodel.menuViewModel
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.KeyboardArrowDown
+import androidx.compose.material.icons.filled.KeyboardArrowUp
 import androidx.compose.material3.ButtonColors
 import androidx.compose.material3.MenuDefaults
 import androidx.compose.material3.OutlinedTextFieldDefaults
 import androidx.compose.material3.TextFieldColors
 import androidx.compose.ui.geometry.Offset
+import androidx.compose.ui.geometry.Size
 import androidx.compose.ui.graphics.Brush
+import androidx.compose.ui.layout.onGloballyPositioned
+import androidx.compose.ui.unit.toSize
 import androidx.navigation.NavController
 import androidx.navigation.Navigation
 import com.example.pr04_ahorcado.Routes
@@ -59,6 +64,12 @@ fun vistaMenu(myviewModel : menuViewModel, navController: NavController) {
     val scrollState = rememberScrollState()
     var selectedText by remember { mutableStateOf("") }
     var expanded by remember { mutableStateOf(false) }
+    var textFieldSize by remember { mutableStateOf(Size.Zero)}
+    val icon = if (expanded){
+       Icons.Filled.KeyboardArrowUp
+    }else{
+        Icons.Filled.KeyboardArrowDown
+    }
     val options = listOf("facil", "moderado", "dificil", "imposible")
     var hola by remember { mutableStateOf("h") }
     Box(
@@ -99,16 +110,20 @@ fun vistaMenu(myviewModel : menuViewModel, navController: NavController) {
 
             OutlinedTextField(
                 value = selectedText,
-                trailingIcon = {Icon(
-                    imageVector = Icons.Filled.ArrowDropDown, // Usamos un ícono de Material Design
-                    contentDescription = "Dropdown Icon",
-                )},
                 onValueChange = {selectedText = it},
                 enabled = false,
                 readOnly = true,
                 modifier = Modifier
+                    .fillMaxWidth()
+                    .onGloballyPositioned { coordinates ->
+                        textFieldSize = coordinates.size.toSize()
+                    }
                     .clickable { expanded = true }
                     .padding(9.dp),
+                label = {Text(text = "Selecciona dificultad")},
+                trailingIcon = {
+                    Icon(icon, "", Modifier.clickable { expanded = true })
+                },
                 colors = OutlinedTextFieldDefaults.colors(
                     focusedContainerColor = Color.Black,
                     unfocusedContainerColor = Color.Black
