@@ -332,7 +332,7 @@ fun vistaHelp(myviewModel : menuViewModel, navController: NavController){
             Row(
                 modifier = Modifier
                     .padding(top = 7.dp)
-                    .padding(bottom = 30.dp)
+                    .padding(bottom = 20.dp)
             ) {
                 Icon(
                     Icons.Filled.Star,
@@ -345,8 +345,21 @@ fun vistaHelp(myviewModel : menuViewModel, navController: NavController){
                     modifier = Modifier.padding(start = 5.dp)
                 )
             }
+            Button(
+                onClick = {navController.navigate(Routes.vistaMenu.route)},
+                modifier = Modifier
+                    .padding(bottom = 30.dp),
+                colors = ButtonDefaults.buttonColors(
+                    containerColor = Color.Black,
+                    contentColor = Color.White
+                )
+            ) {
+                Text(
+                    text = "volver"
+                )
+            }
 
-
+//TODO AÑADIR EL BOTON PONER BORDE Y AJUSTAR LOS PADDINGS
         }
     }
 }
