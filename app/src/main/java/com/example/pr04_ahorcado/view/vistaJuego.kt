@@ -14,6 +14,7 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
@@ -85,7 +86,7 @@ fun vistaJuego(
                 contentDescription = "Hangman"
             )
         }
-        Text(text = startHangmanArray.joinToString(" "), fontSize = 24.sp)
+        Text(text = wordState.joinToString(" "), fontSize = 24.sp)
         Spacer(modifier = Modifier.height(16.dp))
         Text(text = "Intent restants: $attemptsLeft", fontSize = 18.sp, color = Color.Black)
         Spacer(modifier = Modifier.height(16.dp))
@@ -108,7 +109,7 @@ fun vistaJuego(
                             .size(40.dp)
                             .background(
                                 when {
-                                    isSelected && charKey in hangmanWord -> Color.Green
+                                    isSelected && charKey in wordState -> Color.Green
                                     isSelected -> Color.Red
                                     else -> Color.Gray
                                 },
@@ -116,7 +117,7 @@ fun vistaJuego(
                             )
                             .clickable(
                                 enabled = !isSelected && !gameOver,
-                                onClick = { selectedKey = charKey }
+                                onClick = { viewModel. = charKey }
                             ),
                         contentAlignment = Alignment.Center
                     ) {

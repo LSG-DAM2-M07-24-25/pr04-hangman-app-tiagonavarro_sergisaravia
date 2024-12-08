@@ -33,6 +33,11 @@ class menuViewModel : ViewModel() {
         updateState()
     }
 
+    fun selectKey(key: Char) {
+        game.selectKey(key)
+        updateState()
+    }
+
     private fun updateState() {
         _wordState.value = game.getWordState()
         _attemptsLeft.value = game.getAttemptsLeft()
@@ -40,6 +45,7 @@ class menuViewModel : ViewModel() {
         _win.value = game.didWin()
         _selectedKeys.value = game.getSelectedKeys()
     }
+
 
     val dificultad: LiveData<ahorcado> = _ahorcado
     val selectDificutad = MutableLiveData<String>()
