@@ -25,5 +25,11 @@ data class ahorcado(
         gameOver = false
         win = false
     }
+
+    //Metodos get
+    fun getWordState(): List<Char> = currentWordArray
+    fun getAttemptsLeft(): Int = attemptsLeft
+    fun isGameOver(): Boolean = gameOver
+    fun didWin(): Boolean = win
 }
 
