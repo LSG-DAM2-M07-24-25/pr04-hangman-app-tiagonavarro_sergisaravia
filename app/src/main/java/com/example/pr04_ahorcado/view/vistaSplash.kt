@@ -50,4 +50,5 @@ fun vistaSplash(navController: NavController) {
         )
     }
 }
+//d
 
