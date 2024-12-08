@@ -28,7 +28,18 @@ class menuViewModel : ViewModel() {
     private val _selectedKeys = mutableStateOf(game.getSelectedKeys())
     val selectedKeys: State<Set<Char>> = _selectedKeys
 
-    
+    fun resetGame(){
+        game.resetGame()
+        updateState()
+    }
+
+    private fun updateState() {
+        _wordState.value = game.getWordState()
+        _attemptsLeft.value = game.getAttemptsLeft()
+        _gameOver.value = game.isGameOver()
+        _win.value = game.didWin()
+        _selectedKeys.value = game.getSelectedKeys()
+    }
 
     val dificultad: LiveData<ahorcado> = _ahorcado
     val selectDificutad = MutableLiveData<String>()
