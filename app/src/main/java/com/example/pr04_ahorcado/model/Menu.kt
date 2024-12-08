@@ -11,14 +11,19 @@ data class ahorcado(
     val maxAttemts: Int = 6
 ){
     private lateinit var currentWord: String
+    private var currentWordArray: = MutableList<Char> = mutableListOf()
     private val selectedKeys: MutableSet<Char> = mutableListOf()
     private var attemptsLeft: Int = maxAttemts
     private var gameOver: Boolean = false
     private var win: Boolean = false
 
-    fun resetGame() {
-        currentWord = wordsList.random()
-        currentWord
+    fun resetGame() { //metodo para reiniciar juego
+        currentWord = wordsList.random() //elije una palabra random del array
+        currentWordArray = currentWord.map {'_'}.toMutableList() //devuelve todos los datos para que se printeen como '_'
+        selectedKeys.clear()
+        attemptsLeft = maxAttemts
+        gameOver = false
+        win = false
     }
 }
 
