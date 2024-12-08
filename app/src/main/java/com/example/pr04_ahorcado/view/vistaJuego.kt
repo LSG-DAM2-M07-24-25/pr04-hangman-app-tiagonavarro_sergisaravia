@@ -47,6 +47,7 @@ import com.example.pr04_ahorcado.viewmodel.menuViewModel
 import androidx.compose.material.icons.Icons
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.saveable.rememberSaveable
+import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavController
 import androidx.navigation.Navigation
 import com.example.pr04_ahorcado.Routes
@@ -54,23 +55,14 @@ import kotlinx.coroutines.delay
 
 @Composable
 fun vistaJuego(
-    menuViewModel: com.example.pr04_ahorcado.viewmodel.menuViewModel,
+    viewModel: com.example.pr04_ahorcado.viewmodel.menuViewModel,
     navController: NavController
 ) {
-    val wordsList = arrayOf(
-        "CASA", "GAT", "GOS", "TAULA", "CADIRA", "COTXE", "FLOR", "NÚVOL", "MUNTANYA", "PLATJA",
-        "MAR", "AIGUA", "SOL", "LLUNA", "ESTRELLA", "CARRER", "ESCOLA", "LLIBRE", "BOLÍGRAF",
-        "TREBALL", "AMISTAT", "FESTA", "MÚSICA", "JARDÍ", "FAMÍLIA", "CIUTAT", "TREN", "AVENTURA",
-        "MISTERI", "POEMA", "PLANETA", "PAÍS", "CASTELL", "GUITARRA", "CINEMA", "TEATRE"
-    )
-
-    var hangmanWord by rememberSaveable { mutableStateOf(wordsList.random()) }
-    var startHangmanArray by rememberSaveable { mutableStateOf(hangmanWord.map { '_' }.toMutableList()) }
-    var selectedKey by rememberSaveable { mutableStateOf<Char?>(null) }
-    var selectedKeys by rememberSaveable { mutableStateOf(setOf<Char>()) }
-    var gameOver by rememberSaveable { mutableStateOf(false) }
-    var win by rememberSaveable { mutableStateOf(false) }
-    var attemptsLeft by rememberSaveable { mutableStateOf(6) }
+    val wordState by viewModel.wordState
+    val selectedKeys by viewModel.selectedKeys
+    val gameOver by viewModel.gameOver
+    val win by viewModel.win
+    val attemptsLeft by viewModel.attemptsLeft
 
     selectedKey?.let { key ->
         if (!gameOver) {
