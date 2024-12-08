@@ -20,7 +20,7 @@ import com.example.pr04_ahorcado.viewmodel.menuViewModel
 fun entryPoint(navigationController: NavController) {
     NavHost(
         navController = navigationController as NavHostController,
-        startDestination = Routes.vistaMenu.route
+        startDestination = Routes.splash.route
     ){
         composable(Routes.vistaMenu.route) { vistaMenu(menuViewModel(), navigationController)}
         composable(Routes.Help.route) { vistaHelp(menuViewModel(), navigationController) }

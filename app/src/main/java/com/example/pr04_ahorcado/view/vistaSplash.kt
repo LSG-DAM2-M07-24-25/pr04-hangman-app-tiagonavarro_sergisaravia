@@ -22,9 +22,9 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
-import com.example.livedataexample.R
-import com.example.livedataexample.Routes
-import com.example.livedataexample.ui.theme.LiveDataExampleTheme
+import com.example.pr04_ahorcado.R
+import com.example.pr04_ahorcado.Routes
+
 
 
 @Composable
@@ -53,7 +53,7 @@ fun vistaSplash(navController: NavController) {
     // Canvia de pantalla automàticament al cap de 3 segons
     LaunchedEffect(Unit) {
         delay(3000)
-        navController.navigate(Routes.Pantalla2.route)
+        navController.navigate(Routes.vistaMenu.route)
     }
 
     // Disseny de la pantalla
@@ -63,7 +63,7 @@ fun vistaSplash(navController: NavController) {
             .background(Color.Green)
     ) {
         Image(
-            painter = painterResource(id = R.drawable.icono_app),
+            painter = painterResource(id = R.drawable.iconoapp),
             contentDescription = "Descripció",
             contentScale = ContentScale.FillBounds,
             modifier = Modifier
