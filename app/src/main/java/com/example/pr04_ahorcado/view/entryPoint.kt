@@ -9,6 +9,7 @@ import androidx.navigation.compose.composable
 import androidx.navigation.navArgument
 import com.example.livedataexample.view.vistaSplash
 import com.example.pr04_ahorcado.Routes
+import com.example.pr04_ahorcado.view.vistaFinal
 import com.example.pr04_ahorcado.view.vistaJuego
 import com.example.pr04_ahorcado.view.vistaHelp
 import com.example.pr04_ahorcado.view.vistaMenu
@@ -27,5 +28,6 @@ fun entryPoint(navigationController: NavController) {
         composable(Routes.Juego.route){ vistaJuego(menuViewModel(), navigationController) }
         composable(Routes.Result.route){ vistaResult(menuViewModel(), navigationController)}
         composable(Routes.splash.route){ vistaSplash(navigationController)}
+        composable(Routes.Final.route){ vistaFinal(menuViewModel(), navigationController) }
     }
 }
