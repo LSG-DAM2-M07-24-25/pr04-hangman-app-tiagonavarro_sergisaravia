@@ -1,13 +1,35 @@
 package com.example.pr04_ahorcado.viewmodel
+import androidx.compose.runtime.mutableStateOf
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.example.pr04_ahorcado.model.ahorcado
+import androidx.compose.runtime.State
 
 
 class menuViewModel : ViewModel() {
 
+
     private val _ahorcado = MutableLiveData(ahorcado(1))
+    private val game = ahorcado()
+
+    private val _wordState = mutableStateOf(game.getWordState())
+    val wordState: State<List<Char>> = _wordState
+
+    private val _attemptsLeft = mutableStateOf(game.getAttemptsLeft())
+    val attemptsLeft: State<Int> = _attemptsLeft
+
+    private val _gameOver = mutableStateOf(game.isGameOver())
+    val gameOver: State<Boolean> = _gameOver
+
+    private val _win = mutableStateOf(game.didWin())
+    val win: State<Boolean> = _gameOver
+
+    private val _selectedKeys = mutableStateOf(game.getSelectedKeys())
+    val selectedKeys: State<Set<Char>> = _selectedKeys
+
+    
+
     val dificultad: LiveData<ahorcado> = _ahorcado
     val selectDificutad = MutableLiveData<String>()
     fun onDificultSelected() {

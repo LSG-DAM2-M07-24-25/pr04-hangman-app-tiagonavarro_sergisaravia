@@ -3,7 +3,7 @@ package com.example.pr04_ahorcado.model
 import androidx.compose.runtime.key
 
 data class ahorcado(
-    var dificultad: Int,
+    var dificultad: Int = 1,
     val wordsList: List<String> = listOf(
         "CASA", "GAT", "GOS", "TAULA", "CADIRA", "COTXE", "FLOR", "NÚVOL", "MUNTANYA", "PLATJA",
         "MAR", "AIGUA", "SOL", "LLUNA", "ESTRELLA", "CARRER", "ESCOLA", "LLIBRE", "BOLÍGRAF",
