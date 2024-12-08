@@ -46,6 +46,118 @@ import androidx.navigation.Navigation
 import com.example.pr04_ahorcado.Routes
 
 @Composable
-fun vistaJuego(myviewModel : menuViewModel, navController: NavController){
-    Text(text="Juego")
+fun vistaJuego(
+    menuViewModel: com.example.pr04_ahorcado.viewmodel.menuViewModel,
+    navController: NavController
+) {
+    val wordsList = arrayOf(
+        "CASA", "GAT", "GOS", "TAULA", "CADIRA", "COTXE", "FLOR", "NÚVOL", "MUNTANYA", "PLATJA",
+        "MAR", "AIGUA", "SOL", "LLUNA", "ESTRELLA", "CARRER", "ESCOLA", "LLIBRE", "BOLÍGRAF",
+        "TREBALL", "AMISTAT", "FESTA", "MÚSICA", "JARDÍ", "FAMÍLIA", "CIUTAT", "TREN", "AVENTURA",
+        "MISTERI", "POEMA", "PLANETA", "PAÍS", "CASTELL", "GUITARRA", "CINEMA", "TEATRE"
+    )
+
+    var hangmanWord by rememberSaveable { mutableStateOf(wordsList.random()) }
+    var startHangmanArray by rememberSaveable { mutableStateOf(hangmanWord.map { '_' }.toMutableList()) }
+    var selectedKey by rememberSaveable { mutableStateOf<Char?>(null) }
+    var selectedKeys by rememberSaveable { mutableStateOf(setOf<Char>()) }
+    var gameOver by rememberSaveable { mutableStateOf(false) }
+    var win by rememberSaveable { mutableStateOf(false) }
+    var attemptsLeft by rememberSaveable { mutableStateOf(6) }
+
+    selectedKey?.let { key ->
+        if (!gameOver) {
+            if (key in hangmanWord && key !in selectedKeys) {
+                startHangmanArray = startHangmanArray.mapIndexed { index, current ->
+                    if (hangmanWord[index] == key) key else current
+                }.toMutableList()
+                if (!startHangmanArray.contains('_')) {
+                    win = true
+                    gameOver = true
+                    ScoreManager.incrementRoundsWon() // Incrementa les rondes guanyades
+                }
+            } else if (key !in selectedKeys) {
+                attemptsLeft--
+                if (attemptsLeft <= 0) {
+                    gameOver = true
+                }
+            }
+            selectedKeys = selectedKeys + key
+        }
+        selectedKey = null
+    }
+
+    Column(
+        modifier = Modifier.fillMaxSize(),
+        verticalArrangement = Arrangement.Center,
+        horizontalAlignment = Alignment.CenterHorizontally
+    ) {
+        Box {
+            val hangmanImages = listOf(
+                R.drawable.hangman0,
+                R.drawable.hangman1,
+                R.drawable.hangman2,
+                R.drawable.hangman3,
+                R.drawable.hangman4,
+                R.drawable.hangman5,
+                R.drawable.hangman6
+            )
+            Image(
+                painter = painterResource(id = hangmanImages[6 - attemptsLeft]),
+                contentDescription = "Hangman"
+            )
+        }
+        Text(text = startHangmanArray.joinToString(" "), fontSize = 24.sp)
+        Spacer(modifier = Modifier.height(16.dp))
+        Text(text = "Intent restants: $attemptsLeft", fontSize = 18.sp, color = Color.Black)
+        Spacer(modifier = Modifier.height(16.dp))
+
+        val keys = listOf(
+            listOf("A", "B", "C", "Ç", "D", "E", "F", "G", "H"),
+            listOf("I", "J", "K", "L", "M", "N", "O", "P", "Q"),
+            listOf("R", "S", "T", "U", "V", "W", "X", "Y", "Z")
+        )
+        keys.forEach { row ->
+            Row(
+                modifier = Modifier.fillMaxWidth(),
+                horizontalArrangement = Arrangement.SpaceEvenly
+            ) {
+                row.forEach { key ->
+                    val charKey = key[0]
+                    val isSelected = charKey in selectedKeys
+                    Box(
+                        modifier = Modifier
+                            .size(40.dp)
+                            .background(
+                                when {
+                                    isSelected && charKey in hangmanWord -> Color.Green
+                                    isSelected -> Color.Red
+                                    else -> Color.Gray
+                                },
+                                shape = RoundedCornerShape(4.dp)
+                            )
+                            .clickable(
+                                enabled = !isSelected && !gameOver,
+                                onClick = { selectedKey = charKey }
+                            ),
+                        contentAlignment = Alignment.Center
+                    ) {
+                        Text(text = key, color = Color.White, fontSize = 12.sp)
+                    }
+                }
+            }
+            Spacer(modifier = Modifier.height(8.dp))
+        }
+
+        if (gameOver) {
+            LaunchedEffect(Unit) {
+                delay(3000)
+                navController.navigate(
+                    if (win) Routes.Final.route else Routes.Result.route
+                ) {
+                    popUpTo(Routes.Juego.route) { inclusive = true }
+                }
+            }
+        }
+    }
 }
