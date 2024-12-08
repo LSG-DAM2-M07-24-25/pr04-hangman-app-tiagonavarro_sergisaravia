@@ -64,27 +64,6 @@ fun vistaJuego(
     val win by viewModel.win
     val attemptsLeft by viewModel.attemptsLeft
 
-    selectedKey?.let { key ->
-        if (!gameOver) {
-            if (key in hangmanWord && key !in selectedKeys) {
-                startHangmanArray = startHangmanArray.mapIndexed { index, current ->
-                    if (hangmanWord[index] == key) key else current
-                }.toMutableList()
-                if (!startHangmanArray.contains('_')) {
-                    win = true
-                    gameOver = true
-                    ScoreManager.incrementRoundsWon() // Incrementa les rondes guanyades
-                }
-            } else if (key !in selectedKeys) {
-                attemptsLeft--
-                if (attemptsLeft <= 0) {
-                    gameOver = true
-                }
-            }
-            selectedKeys = selectedKeys + key
-        }
-        selectedKey = null
-    }
 
     Column(
         modifier = Modifier.fillMaxSize(),
