@@ -28,27 +28,6 @@ import com.example.pr04_ahorcado.Routes
 
 
 @Composable
-fun MainNavHost() {
-    val navController = rememberNavController() // Controlador de navegació
-    NavHost(
-        navController = navController,
-        startDestination = "screen1" // Pantalla inicial
-    ) {
-        // Definim les rutes i associem cada ruta amb un Composable
-        composable("screen1") {
-            ScreenSplash(
-                navController = TODO()
-            )
-        }
-        composable("screen2") {
-            Screen2(
-                navController = TODO()
-            )
-        }
-    }
-}
-
-@Composable
 fun vistaSplash(navController: NavController) {
     // Canvia de pantalla automàticament al cap de 3 segons
     LaunchedEffect(Unit) {
