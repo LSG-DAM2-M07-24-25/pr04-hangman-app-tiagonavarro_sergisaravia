@@ -117,7 +117,7 @@ fun vistaJuego(
                             )
                             .clickable(
                                 enabled = !isSelected && !gameOver,
-                                onClick = { viewModel. = charKey }
+                                onClick = { viewModel.selectKey(charKey) }
                             ),
                         contentAlignment = Alignment.Center
                     ) {
