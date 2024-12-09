@@ -1,4 +1,4 @@
-package com.example.livedataexample.view
+package com.example.pr04_ahorcado.view
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
@@ -19,10 +19,11 @@ import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import com.example.pr04_ahorcado.Routes
 import com.example.pr04_ahorcado.view.ScoreManager
+import com.example.pr04_ahorcado.viewmodel.menuViewModel
 
 
 @Composable
-fun Final(navController: NavController) {
+fun vistaResult(myviewModel : menuViewModel, navController: NavController) {
     Column(
         modifier = Modifier.fillMaxSize(),
         verticalArrangement = Arrangement.Center,

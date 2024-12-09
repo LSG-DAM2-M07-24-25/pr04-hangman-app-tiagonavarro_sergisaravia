@@ -28,6 +28,9 @@ class menuViewModel : ViewModel() {
     private val _selectedKeys = mutableStateOf(game.getSelectedKeys())
     val selectedKeys: State<Set<Char>> = _selectedKeys
 
+    private val _rondasGanadas = mutableStateOf(game.getRondasGanadas())
+    val rondasGanadas: State<Int> = _rondasGanadas
+
     fun resetGame(){
         game.resetGame()
         updateState()
@@ -44,6 +47,7 @@ class menuViewModel : ViewModel() {
         _gameOver.value = game.isGameOver()
         _win.value = game.didWin()
         _selectedKeys.value = game.getSelectedKeys()
+        _rondasGanadas.value = game.getRondasGanadas()
     }
 
 
