@@ -63,7 +63,8 @@ import androidx.compose.ui.unit.toSize
 import androidx.navigation.Navigation
 import com.example.pr04_ahorcado.Routes
 
+@Composable
 fun vistaFinal(menuViewModel: com.example.pr04_ahorcado.viewmodel.menuViewModel, navController: NavController
 ){
-
+    Text("Pantalla final")
 }

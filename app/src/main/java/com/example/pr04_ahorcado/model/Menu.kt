@@ -12,7 +12,7 @@ data class ahorcado(
     ),
     val maxAttemts: Int = 6
 ){
-    private lateinit var currentWord: String
+    private var currentWord: String = wordsList.random()
     private var currentWordArray:  MutableList<Char> = mutableListOf()
     private val selectedKeys: MutableSet<Char> = mutableSetOf()
     private var attemptsLeft: Int = maxAttemts

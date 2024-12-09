@@ -54,16 +54,19 @@ import androidx.navigation.Navigation
 import com.example.pr04_ahorcado.Routes
 import kotlinx.coroutines.delay
 
+//TODO hacer que se inicialicen las variables
 @Composable
 fun vistaJuego(
-    viewModel: com.example.pr04_ahorcado.viewmodel.menuViewModel,
-    navController: NavController
+    myviewModel : menuViewModel, navController: NavController
 ) {
-    val wordState by viewModel.wordState
-    val selectedKeys by viewModel.selectedKeys
-    val gameOver by viewModel.gameOver
-    val win by viewModel.win
-    val attemptsLeft by viewModel.attemptsLeft
+
+    val wordState by myviewModel.wordState
+    val selectedKeys by myviewModel.selectedKeys
+    val gameOver by myviewModel.gameOver
+    val win by myviewModel.win
+    val attemptsLeft by myviewModel.attemptsLeft
+
+
 
 
     Column(
@@ -117,7 +120,7 @@ fun vistaJuego(
                             )
                             .clickable(
                                 enabled = !isSelected && !gameOver,
-                                onClick = { viewModel.selectKey(charKey) }
+                                onClick = { myviewModel.selectKey(charKey) }
                             ),
                         contentAlignment = Alignment.Center
                     ) {
