@@ -1,7 +1,7 @@
 package com.example.pr04_ahorcado.model
 
 import androidx.compose.runtime.key
-
+//TODO Hacer que la puntuacion se printee correctamente
 data class ahorcado(
     var dificultad: Int = 1,
     val wordsList: List<String> = listOf(
@@ -27,6 +27,8 @@ data class ahorcado(
         attemptsLeft = maxAttemts
         gameOver = false
         win = false
+    }
+    fun resetPuntuacion() {
         rondasGanadas = 0
     }
 

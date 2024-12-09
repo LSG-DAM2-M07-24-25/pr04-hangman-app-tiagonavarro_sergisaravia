@@ -36,6 +36,11 @@ class menuViewModel : ViewModel() {
         updateState()
     }
 
+    fun resetPuntuacion(){
+        game.resetPuntuacion()
+        updateState()
+    }
+
     fun selectKey(key: Char) {
         game.selectKey(key)
         updateState()

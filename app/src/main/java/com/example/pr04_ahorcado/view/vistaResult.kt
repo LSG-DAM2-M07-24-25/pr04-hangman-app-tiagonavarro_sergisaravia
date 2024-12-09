@@ -48,7 +48,7 @@ fun vistaResult(myviewModel : menuViewModel, navController: NavController) {
                 text = "Vols tornar a jugar?",
                 modifier = Modifier
                     .clickable {
-                        //ScoreManager.reset() // Reset de les rondes
+                        myviewModel.resetPuntuacion()
                         navController.navigate(Routes.Juego.route) // Tornar a la pantalla inicial
                     }
                     .background(Color.Blue, shape = RoundedCornerShape(4.dp))
@@ -63,6 +63,7 @@ fun vistaResult(myviewModel : menuViewModel, navController: NavController) {
                 text = "Sortir",
                 modifier = Modifier
                     .clickable {
+                        myviewModel.resetPuntuacion()
                         navController.navigate(Routes.vistaMenu.route) // Pantalla de sortida
                     }
                     .background(Color.Red, shape = RoundedCornerShape(4.dp))

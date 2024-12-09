@@ -84,7 +84,7 @@ fun vistaJuego(
                 R.drawable.hangman1,
                 R.drawable.hangman0,
 
-            )
+                )
             Image(
                 painter = painterResource(id = hangmanImages[6 - attemptsLeft]),
                 contentDescription = "Hangman"
