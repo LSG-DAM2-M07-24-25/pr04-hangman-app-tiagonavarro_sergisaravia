@@ -132,14 +132,10 @@ fun vistaJuego(
             Spacer(modifier = Modifier.height(8.dp))
         }
 
-        if (gameOver) {
+        if (gameOver && !win) {
             LaunchedEffect(Unit) {
                 delay(3000)
-                navController.navigate(
-                    if (win) Routes.Final.route else Routes.Result.route
-                ) {
-                    popUpTo(Routes.Juego.route) { inclusive = true }
-                }
+                navController.navigate(Routes.Result.route)
             }
         }
     }
