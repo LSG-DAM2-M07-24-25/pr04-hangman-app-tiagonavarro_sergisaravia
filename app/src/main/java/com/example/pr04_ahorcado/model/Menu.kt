@@ -38,8 +38,10 @@ data class ahorcado(
         if (gameOver || selectedKeys.contains(key)) return
         selectedKeys.add(key)
         if (key in currentWord) {
-            currentWordArray = currentWord.mapIndexed{ index, char ->
-                if (currentWord[index] == key) key else char
+            currentWordArray = currentWordArray.mapIndexed { index, existingChar ->
+                if (existingChar != '_') existingChar
+                else if (currentWord[index] == key) key
+                else '_'
             }.toMutableList()
 
         }
