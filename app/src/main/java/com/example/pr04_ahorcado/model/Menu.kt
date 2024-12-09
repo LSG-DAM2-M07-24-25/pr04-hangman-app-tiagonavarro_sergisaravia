@@ -18,6 +18,7 @@ data class ahorcado(
     private var attemptsLeft: Int = maxAttemts
     private var gameOver: Boolean = false
     private var win: Boolean = false
+    private var rondasGanadas: Int = 0
 
     fun resetGame() { //metodo para reiniciar juego
         currentWord = wordsList.random() //elije una palabra random del array
@@ -26,11 +27,13 @@ data class ahorcado(
         attemptsLeft = maxAttemts
         gameOver = false
         win = false
+        rondasGanadas = 0
     }
 
     //Metodos get
     fun getWordState(): List<Char> = currentWordArray
     fun getAttemptsLeft(): Int = attemptsLeft
+    fun getRondasGanadas(): Int = rondasGanadas
     fun isGameOver(): Boolean = gameOver
     fun didWin(): Boolean = win
 
@@ -47,6 +50,7 @@ data class ahorcado(
         }
         if (!currentWordArray.contains('_')) { //comprueba que no hay ningun '_' por lo tanto el jugador habria ganado
             win = true
+            rondasGanadas++
             gameOver = true
         } else {
             attemptsLeft--
