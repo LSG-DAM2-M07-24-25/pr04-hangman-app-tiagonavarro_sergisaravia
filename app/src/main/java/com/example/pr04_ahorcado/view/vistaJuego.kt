@@ -137,7 +137,7 @@ fun vistaJuego(
                 delay(3000)
                 navController.navigate(Routes.Result.route)
             }
-        } else {
+        } else if (gameOver && win) {
             myviewModel.resetGame()
         }
     }

@@ -23,7 +23,7 @@ class menuViewModel : ViewModel() {
     val gameOver: State<Boolean> = _gameOver
 
     private val _win = mutableStateOf(game.didWin())
-    val win: State<Boolean> = _gameOver
+    val win: State<Boolean> = _win
 
     private val _selectedKeys = mutableStateOf(game.getSelectedKeys())
     val selectedKeys: State<Set<Char>> = _selectedKeys

@@ -56,6 +56,7 @@ data class ahorcado(
             attemptsLeft--
             if (attemptsLeft <= 0){
                 gameOver = true
+                win = false
             }
         }
     }

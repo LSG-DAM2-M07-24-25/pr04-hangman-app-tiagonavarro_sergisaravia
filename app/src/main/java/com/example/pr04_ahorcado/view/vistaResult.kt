@@ -11,6 +11,7 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
@@ -18,19 +19,21 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import com.example.pr04_ahorcado.Routes
-import com.example.pr04_ahorcado.view.ScoreManager
 import com.example.pr04_ahorcado.viewmodel.menuViewModel
 
 
 @Composable
 fun vistaResult(myviewModel : menuViewModel, navController: NavController) {
+
+    val rondasGanadas by myviewModel.rondasGanadas
+
     Column(
         modifier = Modifier.fillMaxSize(),
         verticalArrangement = Arrangement.Center,
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
         Text(
-            text = "Rondes guanyades: ${ScoreManager.roundsWon}",
+            text = "Rondes guanyades: ${rondasGanadas}",
             fontSize = 24.sp,
             color = Color.Black
         )
@@ -45,7 +48,7 @@ fun vistaResult(myviewModel : menuViewModel, navController: NavController) {
                 text = "Vols tornar a jugar?",
                 modifier = Modifier
                     .clickable {
-                        ScoreManager.reset() // Reset de les rondes
+                        //ScoreManager.reset() // Reset de les rondes
                         navController.navigate(Routes.Juego.route) // Tornar a la pantalla inicial
                     }
                     .background(Color.Blue, shape = RoundedCornerShape(4.dp))
