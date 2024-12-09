@@ -76,13 +76,14 @@ fun vistaJuego(
     ) {
         Box {
             val hangmanImages = listOf(
-                R.drawable.hangman0,
-                R.drawable.hangman1,
-                R.drawable.hangman2,
-                R.drawable.hangman3,
-                R.drawable.hangman4,
+                R.drawable.hangman6,
                 R.drawable.hangman5,
-                R.drawable.hangman6
+                R.drawable.hangman4,
+                R.drawable.hangman3,
+                R.drawable.hangman2,
+                R.drawable.hangman1,
+                R.drawable.hangman0,
+
             )
             Image(
                 painter = painterResource(id = hangmanImages[6 - attemptsLeft]),
