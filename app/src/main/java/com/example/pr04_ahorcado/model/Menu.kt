@@ -41,14 +41,15 @@ data class ahorcado(
             currentWordArray = currentWord.mapIndexed{ index, char ->
                 if (currentWord[index] == key) key else char
             }.toMutableList()
-            if (!currentWordArray.contains('_')) { //comprueba que no hay ningun '_' por lo tanto el jugador habria ganado
-                win = true
+
+        }
+        if (!currentWordArray.contains('_')) { //comprueba que no hay ningun '_' por lo tanto el jugador habria ganado
+            win = true
+            gameOver = true
+        } else {
+            attemptsLeft--
+            if (attemptsLeft <= 0){
                 gameOver = true
-            } else {
-                attemptsLeft--
-                if (attemptsLeft <= 0){
-                    gameOver = true
-                }
             }
         }
     }
