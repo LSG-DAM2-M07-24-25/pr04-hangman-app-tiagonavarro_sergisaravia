@@ -47,13 +47,14 @@ data class ahorcado(
                 else '_'
             }.toMutableList()
 
+        } else {
+            attemptsLeft--
         }
         if (!currentWordArray.contains('_')) { //comprueba que no hay ningun '_' por lo tanto el jugador habria ganado
             win = true
             rondasGanadas++
             gameOver = true
         } else {
-            attemptsLeft--
             if (attemptsLeft <= 0){
                 gameOver = true
                 win = false
