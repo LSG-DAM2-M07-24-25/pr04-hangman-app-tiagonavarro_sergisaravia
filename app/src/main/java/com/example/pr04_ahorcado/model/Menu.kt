@@ -13,7 +13,7 @@ data class ahorcado(
     val maxAttemts: Int = 6
 ){
     private var currentWord: String = wordsList.random()
-    private var currentWordArray:  MutableList<Char> = mutableListOf()
+    private var currentWordArray:  MutableList<Char> = currentWord.map {'_'}.toMutableList()
     private val selectedKeys: MutableSet<Char> = mutableSetOf()
     private var attemptsLeft: Int = maxAttemts
     private var gameOver: Boolean = false
