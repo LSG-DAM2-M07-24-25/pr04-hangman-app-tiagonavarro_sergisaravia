@@ -5,10 +5,10 @@ import androidx.compose.runtime.key
 data class ahorcado(
     var dificultad: Int = 1,
     val wordsList: List<String> = listOf(
-        "CASA", "GAT", "GOS", "TAULA", "CADIRA", "COTXE", "FLOR", "NÚVOL", "MUNTANYA", "PLATJA",
+        "CASA", "GAT", "GOS", "TAULA", "CADIRA", "COTXE", "FLOR", "NUVOL", "MUNTANYA", "PLATJA",
         "MAR", "AIGUA", "SOL", "LLUNA", "ESTRELLA", "CARRER", "ESCOLA", "LLIBRE", "BOLÍGRAF",
-        "TREBALL", "AMISTAT", "FESTA", "MÚSICA", "JARDÍ", "FAMÍLIA", "CIUTAT", "TREN", "AVENTURA",
-        "MISTERI", "POEMA", "PLANETA", "PAÍS", "CASTELL", "GUITARRA", "CINEMA", "TEATRE"
+        "TREBALL", "AMISTAT", "FESTA", "MUSICA", "JARDI", "FAMÍLIA", "CIUTAT", "TREN", "AVENTURA",
+        "MISTERI", "POEMA", "PLANETA", "PAIS", "CASTELL", "GUITARRA", "CINEMA", "TEATRE"
     ),
     val maxAttemts: Int = 6
 ){
@@ -27,6 +27,9 @@ data class ahorcado(
         attemptsLeft = maxAttemts
         gameOver = false
         win = false
+    }
+    fun incrementarPuntuacion(){
+        rondasGanadas++
     }
     fun resetPuntuacion() {
         rondasGanadas = 0
@@ -54,7 +57,6 @@ data class ahorcado(
         }
         if (!currentWordArray.contains('_')) { //comprueba que no hay ningun '_' por lo tanto el jugador habria ganado
             win = true
-            rondasGanadas++
             gameOver = true
         } else {
             if (attemptsLeft <= 0){

@@ -12,6 +12,7 @@ import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.livedata.observeAsState
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
@@ -25,7 +26,7 @@ import com.example.pr04_ahorcado.viewmodel.menuViewModel
 @Composable
 fun vistaResult(myviewModel : menuViewModel, navController: NavController) {
 
-    val rondasGanadas by myviewModel.rondasGanadas
+    val rondasGanadas by myviewModel.rondasGanadas.observeAsState()
 
     Column(
         modifier = Modifier.fillMaxSize(),

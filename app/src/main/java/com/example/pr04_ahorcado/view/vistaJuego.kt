@@ -59,12 +59,14 @@ import kotlinx.coroutines.delay
 fun vistaJuego(
     myviewModel : menuViewModel, navController: NavController
 ) {
-
+    val myviewModel: menuViewModel = viewModel()
     val wordState by myviewModel.wordState
     val selectedKeys by myviewModel.selectedKeys
     val gameOver by myviewModel.gameOver
     val win by myviewModel.win
     val attemptsLeft by myviewModel.attemptsLeft
+    val rondasGanadasCount by myviewModel.rondasGanadas.observeAsState(0)
+
 
 
 
@@ -93,6 +95,7 @@ fun vistaJuego(
         Text(text = wordState.joinToString(" "), fontSize = 24.sp)
         Spacer(modifier = Modifier.height(16.dp))
         Text(text = "Intent restants: $attemptsLeft", fontSize = 18.sp, color = Color.Black)
+        Text(text = "partidas ganadas: $rondasGanadasCount")
         Spacer(modifier = Modifier.height(16.dp))
 
         val keys = listOf(
@@ -138,6 +141,7 @@ fun vistaJuego(
                 navController.navigate(Routes.Result.route)
             }
         } else if (gameOver && win) {
+            myviewModel.incrementarPuntuacion()
             myviewModel.resetGame()
         }
     }
