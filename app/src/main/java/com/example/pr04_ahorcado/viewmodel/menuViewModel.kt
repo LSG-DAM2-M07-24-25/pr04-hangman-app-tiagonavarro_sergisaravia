@@ -29,16 +29,19 @@ class menuViewModel : ViewModel() {
     val selectedKeys: State<Set<Char>> = _selectedKeys
 
     private val _rondasGanadas = MutableLiveData(game.getRondasGanadas())
-    val rondasGanadas: LiveData<Int> = _rondasGanadas
+    val rondasGanadas: MutableLiveData<Int> = _rondasGanadas
+
 
     fun resetGame(){
         game.resetGame()
         updateState()
     }
 
-    fun incrementarPuntuacion(){
+    fun incrementarPuntuacion() {
         game.incrementarPuntuacion()
+        _rondasGanadas.value = game.getRondasGanadas() // Asegura que el LiveData se actualice
     }
+
 
     fun resetPuntuacion(){
         game.resetPuntuacion()
@@ -50,7 +53,7 @@ class menuViewModel : ViewModel() {
         updateState()
     }
 
-    private fun updateState() {
+    fun updateState() {
         _wordState.value = game.getWordState()
         _attemptsLeft.value = game.getAttemptsLeft()
         _gameOver.value = game.isGameOver()

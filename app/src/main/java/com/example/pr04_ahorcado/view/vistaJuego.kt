@@ -54,12 +54,11 @@ import androidx.navigation.Navigation
 import com.example.pr04_ahorcado.Routes
 import kotlinx.coroutines.delay
 
-//TODO hacer que se inicialicen las variables
+
 @Composable
 fun vistaJuego(
     myviewModel : menuViewModel, navController: NavController
 ) {
-    val myviewModel: menuViewModel = viewModel()
     val wordState by myviewModel.wordState
     val selectedKeys by myviewModel.selectedKeys
     val gameOver by myviewModel.gameOver

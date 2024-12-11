@@ -18,6 +18,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavController
 import com.example.pr04_ahorcado.Routes
 import com.example.pr04_ahorcado.viewmodel.menuViewModel
@@ -25,16 +26,14 @@ import com.example.pr04_ahorcado.viewmodel.menuViewModel
 
 @Composable
 fun vistaResult(myviewModel : menuViewModel, navController: NavController) {
-
-    val rondasGanadas by myviewModel.rondasGanadas.observeAsState()
-
+    val rondasGanadasCount by myviewModel.rondasGanadas.observeAsState(0)
     Column(
         modifier = Modifier.fillMaxSize(),
         verticalArrangement = Arrangement.Center,
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
         Text(
-            text = "Rondes guanyades: ${rondasGanadas}",
+            text = "Rondes guanyades: ${rondasGanadasCount}",
             fontSize = 24.sp,
             color = Color.Black
         )

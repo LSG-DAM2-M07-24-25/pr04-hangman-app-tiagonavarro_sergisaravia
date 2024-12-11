@@ -19,15 +19,16 @@ import com.example.pr04_ahorcado.viewmodel.menuViewModel
 @Composable
 
 fun entryPoint(navigationController: NavController) {
+    val myViewModel: menuViewModel = menuViewModel()
     NavHost(
         navController = navigationController as NavHostController,
         startDestination = Routes.splash.route
     ){
-        composable(Routes.vistaMenu.route) { vistaMenu(menuViewModel(), navigationController)}
-        composable(Routes.Help.route) { vistaHelp(menuViewModel(), navigationController) }
-        composable(Routes.Juego.route){ vistaJuego(menuViewModel(), navigationController) }
-        composable(Routes.Result.route){ vistaResult(menuViewModel(), navigationController)}
+        composable(Routes.vistaMenu.route) { vistaMenu(myViewModel, navigationController)}
+        composable(Routes.Help.route) { vistaHelp(myViewModel, navigationController) }
+        composable(Routes.Juego.route){ vistaJuego(myViewModel, navigationController) }
+        composable(Routes.Result.route){ vistaResult(myViewModel, navigationController)}
         composable(Routes.splash.route){ vistaSplash(navigationController)}
-        composable(Routes.Final.route){ vistaFinal(menuViewModel(), navigationController) }
+        composable(Routes.Final.route){ vistaFinal(myViewModel, navigationController) }
     }
 }

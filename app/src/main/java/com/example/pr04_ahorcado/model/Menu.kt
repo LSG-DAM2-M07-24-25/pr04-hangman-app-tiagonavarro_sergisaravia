@@ -6,7 +6,7 @@ data class ahorcado(
     var dificultad: Int = 1,
     val wordsList: List<String> = listOf(
         "CASA", "GAT", "GOS", "TAULA", "CADIRA", "COTXE", "FLOR", "NUVOL", "MUNTANYA", "PLATJA",
-        "MAR", "AIGUA", "SOL", "LLUNA", "ESTRELLA", "CARRER", "ESCOLA", "LLIBRE", "BOLÍGRAF",
+        "MAR", "AIGUA", "SOL", "LLUNA", "ESTRELLA", "CARRER", "ESCOLA", "LLIBRE", "BOLIGRAF",
         "TREBALL", "AMISTAT", "FESTA", "MUSICA", "JARDI", "FAMÍLIA", "CIUTAT", "TREN", "AVENTURA",
         "MISTERI", "POEMA", "PLANETA", "PAIS", "CASTELL", "GUITARRA", "CINEMA", "TEATRE"
     ),
