@@ -54,6 +54,10 @@ import androidx.navigation.Navigation
 import com.example.pr04_ahorcado.Routes
 import kotlinx.coroutines.delay
 
+//TODO Cambiar el fondo del dropdown de menu  y quitar lo de welcome App,
+// Añadir el fondo menu en la pantalla de ahorcado y result cambiar el color de los botones de result a negro para que este en sintonia con el estilo del programa,
+// Añadir borde a las teclas para que se vea mejor cuando es rojo o verde
+// Agrandar la imagen del hangman
 
 @Composable
 fun vistaJuego(

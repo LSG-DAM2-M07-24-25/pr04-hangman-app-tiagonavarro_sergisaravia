@@ -8,6 +8,7 @@ import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.rememberScrollState
@@ -36,6 +37,7 @@ import com.example.pr04_ahorcado.viewmodel.menuViewModel
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.KeyboardArrowDown
 import androidx.compose.material.icons.filled.KeyboardArrowUp
+import androidx.compose.material3.AlertDialog
 import androidx.compose.material3.OutlinedTextFieldDefaults
 import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.geometry.Size
@@ -57,7 +59,8 @@ fun vistaMenu(myviewModel: menuViewModel, navController: NavController) {
     var textFieldSize by remember { mutableStateOf(Size.Zero) }
     var textFieldPosition by remember { mutableStateOf(Offset.Zero) }
     val density = LocalDensity.current // To convert pixels to Dp
-
+    var showDialog by remember{ mutableStateOf(false)}
+    
     val icon = if (expanded) {
         Icons.Filled.KeyboardArrowUp
     } else {
@@ -162,7 +165,7 @@ fun vistaMenu(myviewModel: menuViewModel, navController: NavController) {
                 Text(text = "Play")
             }
             Button(
-                onClick = { navController.navigate(Routes.Help.route) },
+                onClick = { showDialog = true },
                 colors = ButtonDefaults.buttonColors(
                     containerColor = Color.Black,
                     contentColor = Color.White
@@ -170,6 +173,57 @@ fun vistaMenu(myviewModel: menuViewModel, navController: NavController) {
             ) {
                 Text(text = "Help")
             }
+        }
+        if (showDialog) {
+            AlertDialog(
+                onDismissRequest = {
+                    // Permite cerrar el diálogo al tocar fuera del cuadro
+                    showDialog = false
+                },
+                title = {
+                    Text(text = "Ahorcado")
+                },
+                text = {
+                    // Contenido scrollable
+                    Box(
+                        modifier = Modifier
+                            .height(200.dp) // Altura máxima para permitir scroll si el contenido es mayor
+                            .verticalScroll(rememberScrollState())
+                    ) {
+                        Text(
+                            text = "Reglas: \n\n" +
+                                    "\t 1. Selecciona la letra que creas que falte en la palabra \n" +
+                                    "\t 2. Cada vez que fallas un dibujo de un stickman ahorcada se irá haciendo pieza a pieza \n" +
+                                    "\t 3. Si adivinas todas las letras antes de que el dibujo del stickman se complete ganas \n" +
+                                    "\t 4. Si el dibujo del stickman se completa pierdes \n\n\n" +
+                                    "Si ganas: \n\n" +
+                                    "\t 1. Se sumará un punto a tu puntuación \n" +
+                                    "\t 2. Te saldrá una nueva palabra para completar \n" +
+                                    "\t 3. El dibujo del ahorcada se reiniciara restableciendo tu numero de intentos \n\n\n" +
+                                    "Si pierdes: \n\n" +
+                                    "\t 1. Te enviará a una pantalla donde veras tu puntuación donde decidiras si volver a jugar (con la misma dificultad) o volver al menú \n\n\n" +
+                                    "Dificultades: \n\n" +
+                                    "\t 1. Selecciona la dificultad en el dropdown del menu \n" +
+                                    "\t 2. Hay cuatro dificultades (facil, moderado, dificil e imposible) \n" +
+                                    "\t 3. La dificultad va segun la longitud de la palabra: facil de 3 a 4 letras, moderado de 5 a 6 letras, dificil de 7 a 8 letra e imposibre de 9 a 10 letras"
+                        )
+                    }
+                },
+                confirmButton = {
+                    Button(
+                        colors = ButtonDefaults.buttonColors(
+                            containerColor = Color.Black,
+                            contentColor = Color.White
+                        ),
+                        onClick = {
+                            // Acción al cerrar
+                            showDialog = false
+                        }
+                    ) {
+                        Text("Cerrar")
+                    }
+                }
+            )
         }
     }
 }
