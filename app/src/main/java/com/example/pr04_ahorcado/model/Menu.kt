@@ -3,7 +3,7 @@ package com.example.pr04_ahorcado.model
 import androidx.compose.runtime.key
 //TODO Hacer que la puntuacion se printee correctamente
 data class ahorcado(
-    val wordsList: List<String> = listOf(
+    var wordsList: List<String> = listOf(
         "CASA", "GAT", "GOS", "TAULA", "CADIRA", "COTXE", "FLOR", "NUVOL", "MUNTANYA", "PLATJA",
         "MAR", "AIGUA", "SOL", "LLUNA", "ESTRELLA", "CARRER", "ESCOLA", "LLIBRE", "BOLIGRAF",
         "TREBALL", "AMISTAT", "FESTA", "MUSICA", "JARDI", "FAMÍLIA", "CIUTAT", "TREN", "AVENTURA",
@@ -99,6 +99,16 @@ data class ahorcado(
                 gameOver = true
                 win = false
             }
+        }
+    }
+    fun selectDificultad(dif : String){
+        when (dif) {
+            //"facil", "moderado", "dificil", "imposible"
+            "facil" -> wordsList = easyWordlist
+            "moderado" -> wordsList = mediumWordList
+            "dificil" -> wordsList = dificultList
+            "imposible" -> wordsList = impossibleList
+            else -> wordsList = easyWordlist
         }
     }
 
