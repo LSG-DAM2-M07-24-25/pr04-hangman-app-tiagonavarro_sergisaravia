@@ -97,13 +97,6 @@ fun vistaMenu(myviewModel: menuViewModel, navController: NavController) {
                 contentScale = ContentScale.Fit
             )
 
-            // Text Display
-            Text(
-                text = "Welcome to the App!",
-                color = Color.Black,
-                modifier = Modifier.padding(top = 16.dp)
-            )
-
             // OutlinedTextField
             OutlinedTextField(
                 value = selectedText,
@@ -117,7 +110,7 @@ fun vistaMenu(myviewModel: menuViewModel, navController: NavController) {
                         textFieldPosition = coordinates.positionInWindow()
                     }
                     .clickable { expanded = true }
-                    .padding(9.dp),
+                    .padding(25.dp),
                 label = { Text(text = "Selecciona dificultad") },
                 trailingIcon = {
                     Icon(icon, "", Modifier.clickable { expanded = true })
