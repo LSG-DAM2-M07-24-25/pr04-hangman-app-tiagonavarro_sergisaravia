@@ -138,7 +138,7 @@ fun vistaMenu(myviewModel: menuViewModel, navController: NavController) {
             ) {
                 options.forEach { dificultad ->
                     DropdownMenuItem(
-                        text = { Text(text = dificultad, color = Color.White) },
+                        text = { Text(text = dificultad, color = Color.Black) },
                         onClick = {
                             expanded = false
                             selectedText = dificultad
