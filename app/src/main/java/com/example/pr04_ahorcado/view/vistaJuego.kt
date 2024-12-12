@@ -92,7 +92,10 @@ fun vistaJuego(
                 )
             Image(
                 painter = painterResource(id = hangmanImages[6 - attemptsLeft]),
-                contentDescription = "Hangman"
+                contentDescription = "Hangman",
+                modifier = Modifier
+                    .size(300.dp)
+                    .padding(30.dp)
             )
         }
         Text(text = wordState.joinToString(" "), fontSize = 24.sp)
