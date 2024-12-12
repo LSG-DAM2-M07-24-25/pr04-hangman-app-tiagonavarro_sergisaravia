@@ -2,6 +2,7 @@ package com.example.pr04_ahorcado.view
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
+import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
@@ -48,6 +49,8 @@ import com.example.pr04_ahorcado.viewmodel.menuViewModel
 import androidx.compose.material.icons.Icons
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.saveable.rememberSaveable
+import androidx.compose.ui.geometry.Offset
+import androidx.compose.ui.graphics.Brush
 import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavController
 import androidx.navigation.Navigation
@@ -75,7 +78,15 @@ fun vistaJuego(
 
 
     Column(
-        modifier = Modifier.fillMaxSize(),
+        modifier = Modifier
+            .background(
+                brush = Brush.linearGradient(
+                    colors = listOf(Color.Cyan, Color.Red),
+                    start = Offset(0f, 0f),
+                    end = Offset(1000f, 1000f)
+                )
+            )
+            .fillMaxSize(),
         verticalArrangement = Arrangement.Center,
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
@@ -96,6 +107,7 @@ fun vistaJuego(
                 modifier = Modifier
                     .size(300.dp)
                     .padding(30.dp)
+                    .background(Color.White)
             )
         }
         Text(text = wordState.joinToString(" "), fontSize = 24.sp)
@@ -128,9 +140,13 @@ fun vistaJuego(
                                 },
                                 shape = RoundedCornerShape(4.dp)
                             )
+                            .border(
+                                width = if (isSelected) 2.dp else 0.dp,
+                                color = Color.Black
+                            )
                             .clickable(
                                 enabled = !isSelected && !gameOver,
-                                onClick = { myviewModel.selectKey(charKey) }
+                                onClick = { myviewModel.selectKey(charKey) },
                             ),
                         contentAlignment = Alignment.Center
                     ) {
