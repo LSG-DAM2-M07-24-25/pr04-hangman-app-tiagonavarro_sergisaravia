@@ -151,6 +151,7 @@ fun vistaMenu(myviewModel: menuViewModel, navController: NavController) {
             // Buttons
             Button(
                 onClick = {
+                    myviewModel.resetGame()
                     navController.navigate(Routes.Juego.route) },
                 modifier = Modifier.padding(top = 120.dp),
                 colors = ButtonDefaults.buttonColors(
