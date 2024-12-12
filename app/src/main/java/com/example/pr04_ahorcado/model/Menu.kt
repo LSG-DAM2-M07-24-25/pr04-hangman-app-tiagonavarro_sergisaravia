@@ -3,7 +3,6 @@ package com.example.pr04_ahorcado.model
 import androidx.compose.runtime.key
 //TODO Hacer que la puntuacion se printee correctamente
 data class ahorcado(
-    var dificultad: Int = 1,
     val wordsList: List<String> = listOf(
         "CASA", "GAT", "GOS", "TAULA", "CADIRA", "COTXE", "FLOR", "NUVOL", "MUNTANYA", "PLATJA",
         "MAR", "AIGUA", "SOL", "LLUNA", "ESTRELLA", "CARRER", "ESCOLA", "LLIBRE", "BOLIGRAF",
@@ -12,6 +11,7 @@ data class ahorcado(
     ),
     val maxAttemts: Int = 6
 ){
+    private var dificultad: Int = 1
     private var currentWord: String = wordsList.random()
     private var currentWordArray:  MutableList<Char> = currentWord.map {'_'}.toMutableList()
     private val selectedKeys: MutableSet<Char> = mutableSetOf()
@@ -76,6 +76,7 @@ data class ahorcado(
     fun getRondasGanadas(): Int = rondasGanadas
     fun isGameOver(): Boolean = gameOver
     fun didWin(): Boolean = win
+    fun getDificultad(): Int = dificultad
 
     fun selectKey(key : Char) {
         if (gameOver || selectedKeys.contains(key)) return
