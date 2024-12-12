@@ -39,6 +39,8 @@ import androidx.compose.material.icons.filled.KeyboardArrowDown
 import androidx.compose.material.icons.filled.KeyboardArrowUp
 import androidx.compose.material3.AlertDialog
 import androidx.compose.material3.OutlinedTextFieldDefaults
+import androidx.compose.material3.TextFieldColors
+import androidx.compose.material3.TextFieldDefaults
 import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.geometry.Size
 import androidx.compose.ui.graphics.Brush
@@ -105,20 +107,20 @@ fun vistaMenu(myviewModel: menuViewModel, navController: NavController) {
                 readOnly = true,
                 modifier = Modifier
                     .fillMaxWidth()
+                    .padding(30.dp)
                     .onGloballyPositioned { coordinates ->
                         textFieldSize = coordinates.size.toSize()
                         textFieldPosition = coordinates.positionInWindow()
                     }
-                    .clickable { expanded = true }
-                    .padding(25.dp),
-                label = { Text(text = "Selecciona dificultad") },
+                    .clickable { expanded = true },
+                label = { Text(text = "Selecciona dificultad", color = Color.Black)  },
+                colors = TextFieldDefaults.colors(
+                    unfocusedLabelColor = Color.Black,
+                    focusedLabelColor = Color.Black
+                ),
                 trailingIcon = {
-                    Icon(icon, "", Modifier.clickable { expanded = true })
-                },
-                colors = OutlinedTextFieldDefaults.colors(
-                    focusedContainerColor = Color.Black,
-                    unfocusedContainerColor = Color.Black
-                )
+                    Icon(icon, "",  Modifier.clickable { expanded = true })
+                }
             )
 
             // DropdownMenu
@@ -127,14 +129,16 @@ fun vistaMenu(myviewModel: menuViewModel, navController: NavController) {
                 onDismissRequest = { expanded = false },
                 offset = with(density) {
                     DpOffset(
-                        x = textFieldPosition.x.toDp(), // Convert X position to Dp
-                        y = (textFieldPosition.y + textFieldSize.height).toDp() // Position below the field
+                        x = (textFieldPosition.x - 42).toDp(), // Convert X position to Dp
+                        y = (textFieldPosition.y + textFieldSize.height * 3 + 20).toDp() // Position below the field
                     )
                 }
+
             ) {
                 options.forEach { dificultad ->
                     DropdownMenuItem(
                         text = { Text(text = dificultad, color = Color.Black) },
+                        modifier = Modifier.fillMaxWidth() .padding(horizontal = 30.dp),
                         onClick = {
                             expanded = false
                             selectedText = dificultad
