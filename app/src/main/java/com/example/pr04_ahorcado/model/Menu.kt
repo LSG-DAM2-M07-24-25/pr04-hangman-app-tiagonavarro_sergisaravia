@@ -19,6 +19,41 @@ data class ahorcado(
     private var gameOver: Boolean = false
     private var win: Boolean = false
     private var rondasGanadas: Int = 0
+    private val easyWordlist: List<String> = listOf(
+        "CASA", "GAT", "GOS", "FLOR", "MAR", "SOL", "TREN", "PAIS",
+        "LUNA", "FOC", "PEU", "CEL", "OCELL", "POMA", "BOSC", "VENT",
+        "LLAC", "CANT", "RAU", "TARD", "ROSA", "RIU", "CAMI", "NIU",
+        "TEUL", "FOCA", "VAIX", "NEU", "PARE", "MOT", "JOC", "MIR",
+        "DONA", "VIU", "SORT", "CAL"
+    )
+    private val mediumWordList: List<String> = listOf(
+        "TAULA", "CADIRA", "COTXE", "NUVOL", "PLATJA", "AIGUA", "LLUNA", "CARRER",
+        "ESCOLA", "LLIBRE", "FESTA", "MUSICA", "JARDI", "CIUTAT", "POEMA", "CINEMA",
+        "TEATRE", "MUNTAR", "BALLAR", "CAMINS", "FINEST", "ESTACI", "ESTUDI", "CAIXES",
+        "PAPER", "FUMADA", "BARRIS", "FALGUE", "PILOTA", "PESCAR", "CUINAR", "MIRALL",
+        "BOSCOS", "AMICAR", "LLANÇA", "TARDOR"
+    )
+    private val dificultList: List<String> = listOf(
+        "MUNTANYA", "ESTRELLA", "BOLIGRAF", "TREBALL", "AMISTAT", "FAMILIA", "AVENTURA",
+        "MISTERI", "PLANETA", "CASTELL", "GUITARRA",
+        "VESTIDOR", "LLEGEND", "REFUGIS", "VIATGER", "PINTURA", "SECRETS", "CALORADA",
+        "SERRALL", "LLUMENER", "ESFORÇOS", "LLOVIZNA", "MIRADES", "BALLABLE", "HARMONIA",
+        "ESQUIMAL", "PROGRAMA", "ESTIMADA", "VIATGES", "TARDORAL", "NEVADES", "SALTADOR",
+        "CUINADOR"
+    )
+    private val impossibleList: List<String> = listOf(
+        "ARQUITECT", "LLIBRERIA", "PROGRAMAR", "ESCRIPTOR", "EXPERIENCIA",
+        "CONSTRUCC", "HOSPITALS", "ALIMENTACI", "INICIATIVA", "VOLUNTARI",
+        "MEDITACIO", "SUGGERENT", "PERSEVERA", "ENIGMATIC", "DESAFIADOR",
+        "COMUNICAR", "COLLECTIU", "APRENENTAT", "PERFECCIO", "DETERMINA",
+        "CURIOSITA", "COORDINAR", "INSPIRADOR", "TRANSFORMA", "INNOVADORA",
+        "ENTUSIASME", "PROTEGINT", "FORMIGUETA", "ENTRENADOR", "AMABILITAT",
+        "ESTRUCTUR", "AUTOMATIC", "INTEGRACI", "CONFIANÇA", "ORIENTADOR",
+        "COOPERATI"
+    )
+
+
+
 
     fun resetGame() { //metodo para reiniciar juego
         currentWord = wordsList.random() //elije una palabra random del array
