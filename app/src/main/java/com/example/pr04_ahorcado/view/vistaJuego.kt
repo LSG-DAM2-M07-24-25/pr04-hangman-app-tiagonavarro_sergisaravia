@@ -140,7 +140,7 @@ fun vistaJuego(
 
         if (gameOver && !win) {
             LaunchedEffect(Unit) {
-                delay(3000)
+                delay(2000)
                 navController.navigate(Routes.Result.route)
             }
         } else if (gameOver && win) {

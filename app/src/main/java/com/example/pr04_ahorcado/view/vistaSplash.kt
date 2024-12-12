@@ -31,7 +31,7 @@ import com.example.pr04_ahorcado.Routes
 fun vistaSplash(navController: NavController) {
     // Canvia de pantalla automàticament al cap de 3 segons
     LaunchedEffect(Unit) {
-        delay(3000)
+        delay(2000)
         navController.navigate(Routes.vistaMenu.route)
     }
 
