@@ -26,3 +26,13 @@
 1. Selecciona la dificultad en el dropdown del menú.
 2. Hay cuatro dificultades (fácil, moderado, difícil e imposible).
 3. La dificultad va según la longitud de la palabra: fácil de 3 a 4 letras, moderado de 5 a 6 letras, difícil de 7 a 8 letras e imposible de 9 a 10 letras.
+
+---
+
+![splash](./ImagenesMarkdown/splash.jpg)
+![menu](./ImagenesMarkdown/menu.jpg)
+![dropdown](./ImagenesMarkdown/dropdown.jpg)
+![help](./ImagenesMarkdown/help.jpg)
+![juego](./ImagenesMarkdown/juego.jpg)
+![fallo](./ImagenesMarkdown/fallo.jpg)
+![result](./ImagenesMarkdown/result.jpg)
