@@ -1,7 +1,6 @@
 package com.example.pr04_ahorcado.model
 
-import androidx.compose.runtime.key
-//TODO Hacer que la puntuacion se printee correctamente
+
 data class ahorcado(
     var wordsList: List<String> = listOf(
         "CASA", "GAT", "GOS", "TAULA", "CADIRA", "COTXE", "FLOR", "NUVOL", "MUNTANYA", "PLATJA",
