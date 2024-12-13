@@ -59,6 +59,7 @@ fun vistaResult(myviewModel : menuViewModel, navController: NavController) {
             Button(
                 onClick = {
                     myviewModel.resetPuntuacion()
+                    myviewModel.resetGame()
                     navController.navigate(Routes.Juego.route)
                 },// Pantalla de sortida
                 modifier = Modifier.padding(8.dp),
